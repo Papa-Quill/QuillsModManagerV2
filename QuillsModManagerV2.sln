@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37328.6 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuillsModManagerV2", "QuillsModManagerV2.csproj", "{77652565-8ABD-45E9-A2CC-C4AF09A77373}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{77652565-8ABD-45E9-A2CC-C4AF09A77373}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77652565-8ABD-45E9-A2CC-C4AF09A77373}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77652565-8ABD-45E9-A2CC-C4AF09A77373}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77652565-8ABD-45E9-A2CC-C4AF09A77373}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {737A0E95-382C-4838-80FD-D2D69782F33B}
+	EndGlobalSection
+EndGlobal

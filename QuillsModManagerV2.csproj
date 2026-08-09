@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{77652565-8ABD-45E9-A2CC-C4AF09A77373}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>QuillsModManagerV2</RootNamespace>
+    <AssemblyName>QuillsModManagerv2</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>QuillDiamondNew64.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Guna.UI2">
+      <HintPath>lib\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>lib\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="infoforms\FormHotKeys.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="infoforms\FormHotKeys.Designer.cs">
+      <DependentUpon>FormHotKeys.cs</DependentUpon>
+    </Compile>
+    <Compile Include="infoforms\FormMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="infoforms\FormMessageBox.Designer.cs">
+      <DependentUpon>FormMessageBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="infoforms\FormToast.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="infoforms\FormToast.Designer.cs">
+      <DependentUpon>FormToast.cs</DependentUpon>
+    </Compile>
+    <Compile Include="infoforms\UserInput\FormColorSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="infoforms\UserInput\FormColorSelector.Designer.cs">
+      <DependentUpon>FormColorSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="infoforms\UserInput\FormColorSelectorOLD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="infoforms\UserInput\FormColorSelectorOLD.Designer.cs">
+      <DependentUpon>FormColorSelectorOLD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="infoforms\UserInput\FormUserInputDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="infoforms\UserInput\FormUserInputDialog.Designer.cs">
+      <DependentUpon>FormUserInputDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QMM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QMM.Designer.cs">
+      <DependentUpon>QMM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\FormThemer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\FormThemer.Designer.cs">
+      <DependentUpon>FormThemer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FormAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\FormAbout.Designer.cs">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FormSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\FormSettings.Designer.cs">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\FormSettingsOLD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserControls\FormSettingsOLD.Designer.cs">
+      <DependentUpon>FormSettingsOLD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\Controls\AnimatedListController.cs" />
+    <Compile Include="Util\Controls\ClickThroughLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Util\Controls\CToolTip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Util\Controls\CustomContextMenuStrip.cs" />
+    <Compile Include="Util\Controls\CustomScrollBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Util\Controls\Debug\DebugUtil.cs" />
+    <Compile Include="Util\Controls\Debug\FormDebugConsole.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Util\Controls\Debug\FormDebugConsole.Designer.cs">
+      <DependentUpon>FormDebugConsole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\Controls\ModManager\DeploymentManager.cs" />
+    <Compile Include="Util\Controls\ModManager\ModBrowser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Util\Controls\ModManager\ModEntry.cs" />
+    <Compile Include="Util\Controls\ModManager\ModListView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Util\Controls\ModManager\ModRegistry.cs" />
+    <Compile Include="Util\Controls\ModManager\Profiles\ProfileManager.cs" />
+    <Compile Include="Util\Controls\ModManager\Profiles\FormProfileManager.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Util\Controls\ModManager\Profiles\FormProfileManager.Designer.cs">
+      <DependentUpon>FormProfileManager.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\Controls\ModManager\Saves\FormSteamUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Util\Controls\ModManager\Saves\FormSteamUser.Designer.cs">
+      <DependentUpon>FormSteamUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Util\Controls\ModManager\Saves\SaveManager.cs" />
+    <Compile Include="Util\Controls\ModManager\Saves\SteamUserManager.cs" />
+    <Compile Include="Util\FormUtil.cs" />
+    <Compile Include="Util\MessageBoxUtil.cs" />
+    <Compile Include="Util\ToastUtil.cs" />
+    <Compile Include="Util\ToolTipUtil.cs" />
+    <Compile Include="Util\UpdateTheme.cs" />
+    <EmbeddedResource Include="infoforms\FormHotKeys.resx">
+      <DependentUpon>FormHotKeys.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="infoforms\FormMessageBox.resx">
+      <DependentUpon>FormMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="infoforms\FormToast.resx">
+      <DependentUpon>FormToast.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="infoforms\UserInput\FormColorSelector.resx">
+      <DependentUpon>FormColorSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="infoforms\UserInput\FormColorSelectorOLD.resx">
+      <DependentUpon>FormColorSelectorOLD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="infoforms\UserInput\FormUserInputDialog.resx">
+      <DependentUpon>FormUserInputDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="QMM.resx">
+      <DependentUpon>QMM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FormAbout.resx">
+      <DependentUpon>FormAbout.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FormSettings.resx">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FormSettingsOLD.resx">
+      <DependentUpon>FormSettingsOLD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\FormThemer.resx">
+      <DependentUpon>FormThemer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Util\Controls\Debug\FormDebugConsole.resx">
+      <DependentUpon>FormDebugConsole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Util\Controls\ModManager\Profiles\FormProfileManager.resx">
+      <DependentUpon>FormProfileManager.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Util\Controls\ModManager\Saves\FormSteamUser.resx">
+      <DependentUpon>FormSteamUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\QuillDiamondNew64.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AnimatedQuillDiamond-30x30.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="QuillDiamondNew64.ico" />
+    <None Include="Resources\SaveData2.png" />
+    <None Include="Resources\Profile.png" />
+    <None Include="Resources\PictureMedium.png" />
+    <None Include="Resources\PictureHi.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>; Move all assemblies and related files to lib folder
+ROBOCOPY "$(TargetDir) " "$(TargetDir)lib\ " /XF *.txt *.json *.exe *.config *.manifest /XD lib logs data /E /IS /MOVE
+if %25errorlevel%25 leq 4 exit 0 else exit %25errorlevel%25</PostBuildEvent>
+  </PropertyGroup>
+</Project>

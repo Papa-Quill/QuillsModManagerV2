@@ -1,0 +1,87 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="QuillsModManagerV2.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="BGPrimary" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">16, 16, 20</Value>
+    </Setting>
+    <Setting Name="BGSecondary" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">20, 20, 26</Value>
+    </Setting>
+    <Setting Name="BGTertiary" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">30, 30, 36</Value>
+    </Setting>
+    <Setting Name="DetailColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">60, 60, 66</Value>
+    </Setting>
+    <Setting Name="DetailActive" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">110, 106, 246</Value>
+    </Setting>
+    <Setting Name="ButtonColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">16, 16, 20</Value>
+    </Setting>
+    <Setting Name="TextColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="PlaceholderColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">193, 200, 207</Value>
+    </Setting>
+    <Setting Name="FormShadows" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="ToolTips" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="UserInput" Type="System.String" Scope="User">
+      <Value Profile="(Default)">User Input</Value>
+    </Setting>
+    <Setting Name="Version" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">v2.0.0</Value>
+    </Setting>
+    <Setting Name="GamePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files (x86)\Steam\steamapps\common\CastleCrashers</Value>
+    </Setting>
+    <Setting Name="UserDataPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">C:\Program Files (x86)\Steam\userdata</Value>
+    </Setting>
+    <Setting Name="SelectedColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="NotifColor" Type="System.Drawing.Color" Scope="User">
+      <Value Profile="(Default)">White</Value>
+    </Setting>
+    <Setting Name="NotifWidth" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">226</Value>
+    </Setting>
+    <Setting Name="TxtNotif" Type="System.String" Scope="User">
+      <Value Profile="(Default)">TxtNotif</Value>
+    </Setting>
+    <Setting Name="BorderRadius" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">8</Value>
+    </Setting>
+    <Setting Name="HotKeyForm" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Default</Value>
+    </Setting>
+    <Setting Name="ModPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="CurrentProfile" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Default</Value>
+    </Setting>
+    <Setting Name="ApplicationSize" Type="System.Drawing.Size" Scope="User">
+      <Value Profile="(Default)">925, 504</Value>
+    </Setting>
+    <Setting Name="ApplicationMaximized" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="DebugMode" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">False</Value>
+    </Setting>
+    <Setting Name="EfficiencyMode" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+    <Setting Name="CurrentSteamUser" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+  </Settings>
+</SettingsFile>
