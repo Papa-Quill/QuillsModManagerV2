@@ -41,7 +41,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ImgIcon)).BeginInit();
             this.PanelBody.SuspendLayout();
             this.SuspendLayout();
-                                             this.LabelTitle.AccessibleName = "LabelTitle";
+            // 
+            // LabelTitle
+            // 
+            this.LabelTitle.AccessibleName = "LabelTitle";
             this.LabelTitle.AutoSize = true;
             this.LabelTitle.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
             this.LabelTitle.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::QuillsModManagerV2.Properties.Settings.Default, "TextColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -52,10 +55,13 @@
             this.LabelTitle.Location = new System.Drawing.Point(52, 11);
             this.LabelTitle.Name = "LabelTitle";
             this.LabelTitle.Size = new System.Drawing.Size(110, 28);
-            this.LabelTitle.TabIndex = 5;
+            this.LabelTitle.TabIndex = 0;
             this.LabelTitle.Text = "User Input";
             this.LabelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                                             this.BtnClose.AccessibleName = "BtnClose";
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.AccessibleName = "BtnClose";
             this.BtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnClose.Animated = true;
             this.BtnClose.BackColor = System.Drawing.Color.Transparent;
@@ -73,10 +79,13 @@
             this.BtnClose.MaximumSize = new System.Drawing.Size(37, 32);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(37, 32);
-            this.BtnClose.TabIndex = 8;
+            this.BtnClose.TabIndex = 0;
             this.BtnClose.UseTransparentBackground = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
-                                             this.PanelHeader.AccessibleName = "PanelHeader";
+            // 
+            // PanelHeader
+            // 
+            this.PanelHeader.AccessibleName = "PanelHeader";
             this.PanelHeader.AutoSize = true;
             this.PanelHeader.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGPrimary;
             this.PanelHeader.BorderColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailColor;
@@ -96,8 +105,11 @@
             this.PanelHeader.Name = "PanelHeader";
             this.PanelHeader.Padding = new System.Windows.Forms.Padding(1);
             this.PanelHeader.Size = new System.Drawing.Size(249, 34);
-            this.PanelHeader.TabIndex = 6;
-                                             this.ImgIcon.AccessibleName = "ImgIcon";
+            this.PanelHeader.TabIndex = 0;
+            // 
+            // ImgIcon
+            // 
+            this.ImgIcon.AccessibleName = "ImgIcon";
             this.ImgIcon.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
             this.ImgIcon.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::QuillsModManagerV2.Properties.Settings.Default, "BGTertiary", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.ImgIcon.Image = global::QuillsModManagerV2.Properties.Resources.AnimatedQuillDiamond;
@@ -107,7 +119,10 @@
             this.ImgIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ImgIcon.TabIndex = 0;
             this.ImgIcon.TabStop = false;
-                                             this.PanelBody.AccessibleName = "PanelBody";
+            // 
+            // PanelBody
+            // 
+            this.PanelBody.AccessibleName = "PanelBody";
             this.PanelBody.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -125,8 +140,11 @@
             this.PanelBody.MinimumSize = new System.Drawing.Size(248, 67);
             this.PanelBody.Name = "PanelBody";
             this.PanelBody.Size = new System.Drawing.Size(249, 67);
-            this.PanelBody.TabIndex = 7;
-                                             this.TxtUserInput.AccessibleName = "TxtUserInput";
+            this.PanelBody.TabIndex = 0;
+            // 
+            // TxtUserInput
+            // 
+            this.TxtUserInput.AccessibleName = "TxtUserInput";
             this.TxtUserInput.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -162,15 +180,21 @@
             this.TxtUserInput.PlaceholderText = global::QuillsModManagerV2.Properties.Settings.Default.UserInput;
             this.TxtUserInput.SelectedText = "";
             this.TxtUserInput.Size = new System.Drawing.Size(227, 45);
-            this.TxtUserInput.TabIndex = 10;
+            this.TxtUserInput.TabIndex = 0;
             this.TxtUserInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-                                             this.FormUserInputEProperties.AnimationInterval = 200;
+            // 
+            // FormUserInputEProperties
+            // 
+            this.FormUserInputEProperties.AnimationInterval = 200;
             this.FormUserInputEProperties.ContainerControl = this;
             this.FormUserInputEProperties.DockIndicatorTransparencyValue = 0.6D;
             this.FormUserInputEProperties.DragForm = false;
             this.FormUserInputEProperties.ResizeForm = false;
             this.FormUserInputEProperties.TransparentWhileDrag = true;
-                                             this.AccessibleName = "FormUserInputDialog";
+            // 
+            // FormUserInputDialog
+            // 
+            this.AccessibleName = "FormUserInputDialog";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGPrimary;

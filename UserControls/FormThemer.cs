@@ -37,6 +37,27 @@ namespace QuillsModManagerV2.UserControls
             UpdateTheme.RegisterIcons(this);
         }
 
+        #region Hotkeys
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {
+                case Keys.Escape:
+                case Keys.Control | Keys.W:
+                    BtnClose.PerformClick();
+                    return true;
+
+                case Keys.Control | Keys.K:
+                    Settings.Default.HotKeyForm = "Default";
+                    FormUtil.ShowForm<FormHotKeys>();
+                    return true;
+
+                default:
+                    return base.ProcessCmdKey(ref msg, keyData);
+            }
+        }
+        #endregion
+
         protected override void OnMouseWheel(MouseEventArgs e)
         {
             Point screen = Cursor.Position;
@@ -843,7 +864,7 @@ namespace QuillsModManagerV2.UserControls
                             if (
                                 MessageBoxUtil.Show(
                                     $"Delete Preset",
-                                    "Delete preset '{preset.Name}'?",
+                                    $"Delete preset '{preset.Name}'?",
                                     true
                                 ) != DialogResult.Yes
                             )
@@ -967,7 +988,7 @@ namespace QuillsModManagerV2.UserControls
         {
             try
             {
-                var inputDialog = new FormUserInputDialog("Preset name", "");
+                var inputDialog = new FormUserInputDialog("Preset name");
                 inputDialog.FormClosed += (s, e) =>
                 {
                     try
@@ -1208,6 +1229,12 @@ namespace QuillsModManagerV2.UserControls
 
             if (WindowState != FormWindowState.Maximized)
                 FormThemerEProperties.BorderRadius = Settings.Default.BorderRadius * 3;
+        }
+
+        private void BtnToolTip_MouseEnter(object sender, EventArgs e)
+        {
+            if (sender is Guna2Button button && button.AccessibleDescription is string tooltipText)
+                ToolTipUtil.SetToolTip(button, tooltipText);
         }
         #endregion
 

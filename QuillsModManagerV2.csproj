@@ -79,12 +79,6 @@
     <Compile Include="infoforms\UserInput\FormColorSelector.Designer.cs">
       <DependentUpon>FormColorSelector.cs</DependentUpon>
     </Compile>
-    <Compile Include="infoforms\UserInput\FormColorSelectorOLD.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="infoforms\UserInput\FormColorSelectorOLD.Designer.cs">
-      <DependentUpon>FormColorSelectorOLD.cs</DependentUpon>
-    </Compile>
     <Compile Include="infoforms\UserInput\FormUserInputDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,12 +110,6 @@
     </Compile>
     <Compile Include="UserControls\FormSettings.Designer.cs">
       <DependentUpon>FormSettings.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\FormSettingsOLD.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserControls\FormSettingsOLD.Designer.cs">
-      <DependentUpon>FormSettingsOLD.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\Controls\AnimatedListController.cs" />
     <Compile Include="Util\Controls\ClickThroughLabel.cs">
@@ -182,9 +170,6 @@
     <EmbeddedResource Include="infoforms\UserInput\FormColorSelector.resx">
       <DependentUpon>FormColorSelector.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="infoforms\UserInput\FormColorSelectorOLD.resx">
-      <DependentUpon>FormColorSelectorOLD.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="infoforms\UserInput\FormUserInputDialog.resx">
       <DependentUpon>FormUserInputDialog.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,9 +192,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FormSettings.resx">
       <DependentUpon>FormSettings.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\FormSettingsOLD.resx">
-      <DependentUpon>FormSettingsOLD.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FormThemer.resx">
       <DependentUpon>FormThemer.cs</DependentUpon>

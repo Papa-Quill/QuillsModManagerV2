@@ -42,10 +42,10 @@
             this.PanelBody = new Guna.UI2.WinForms.Guna2Panel();
             this.BtnChooseGamePath = new Guna.UI2.WinForms.Guna2Button();
             this.BtnChooseUserDataPath = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnGamePathLabel = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnUserDataPathLabel = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnModLibraryPathLabel = new Guna.UI2.WinForms.Guna2Button();
             this.BtnChooseModPath = new Guna.UI2.WinForms.Guna2Button();
-            this.TextBoxModPath = new Guna.UI2.WinForms.Guna2TextBox();
-            this.TextBoxUserDataPath = new Guna.UI2.WinForms.Guna2TextBox();
-            this.TextBoxGamePath = new Guna.UI2.WinForms.Guna2TextBox();
             this.BtnTheme = new Guna.UI2.WinForms.Guna2Button();
             this.PanelThemeHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.LabelThemeTitle = new System.Windows.Forms.Label();
@@ -58,7 +58,10 @@
             this.PanelThemeHeader.SuspendLayout();
             this.PanelTogglesHeader.SuspendLayout();
             this.SuspendLayout();
-                                             this.FormSettingsEProperties.ContainerControl = this;
+            // 
+            // FormSettingsEProperties
+            // 
+            this.FormSettingsEProperties.ContainerControl = this;
             this.FormSettingsEProperties.DockForm = false;
             this.FormSettingsEProperties.DockIndicatorTransparencyValue = 0.6D;
             this.FormSettingsEProperties.DragForm = false;
@@ -66,7 +69,10 @@
             this.FormSettingsEProperties.ResizeForm = false;
             this.FormSettingsEProperties.ShadowColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailActive;
             this.FormSettingsEProperties.TransparentWhileDrag = true;
-                                             this.ImgIcon.AccessibleName = "ImgIcon";
+            // 
+            // ImgIcon
+            // 
+            this.ImgIcon.AccessibleName = "ImgIcon";
             this.ImgIcon.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
             this.ImgIcon.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::QuillsModManagerV2.Properties.Settings.Default, "BGTertiary", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.ImgIcon.Image = global::QuillsModManagerV2.Properties.Resources.AnimatedQuillDiamond;
@@ -79,7 +85,10 @@
             this.ImgIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ImgIcon.TabIndex = 15;
             this.ImgIcon.TabStop = false;
-                                             this.BtnResetSettings.AccessibleDescription = "Reset all settings.";
+            // 
+            // BtnResetSettings
+            // 
+            this.BtnResetSettings.AccessibleDescription = "Reset all settings.";
             this.BtnResetSettings.AccessibleName = "BtnResetSettings";
             this.BtnResetSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnResetSettings.Animated = true;
@@ -99,9 +108,13 @@
             this.BtnResetSettings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BtnResetSettings.Name = "BtnResetSettings";
             this.BtnResetSettings.Size = new System.Drawing.Size(32, 32);
-            this.BtnResetSettings.TabIndex = 11;
+            this.BtnResetSettings.TabIndex = 0;
             this.BtnResetSettings.Click += new System.EventHandler(this.BtnResetSettings_Click);
-                                             this.LabelTitle.AccessibleName = "LabelTitle";
+            this.BtnResetSettings.MouseHover += new System.EventHandler(this.BtnToolTip_MouseEnter);
+            // 
+            // LabelTitle
+            // 
+            this.LabelTitle.AccessibleName = "LabelTitle";
             this.LabelTitle.AutoSize = true;
             this.LabelTitle.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
             this.LabelTitle.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::QuillsModManagerV2.Properties.Settings.Default, "TextColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -113,10 +126,13 @@
             this.LabelTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelTitle.Name = "LabelTitle";
             this.LabelTitle.Size = new System.Drawing.Size(136, 21);
-            this.LabelTitle.TabIndex = 12;
+            this.LabelTitle.TabIndex = 0;
             this.LabelTitle.Text = "QMM / SETTINGS";
             this.LabelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                                             this.BtnClose.AccessibleName = "BtnClose";
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.AccessibleName = "BtnClose";
             this.BtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnClose.Animated = true;
             this.BtnClose.BackColor = System.Drawing.Color.Transparent;
@@ -136,10 +152,13 @@
             this.BtnClose.MaximumSize = new System.Drawing.Size(37, 32);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(37, 32);
-            this.BtnClose.TabIndex = 13;
+            this.BtnClose.TabIndex = 0;
             this.BtnClose.UseTransparentBackground = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
-                                             this.PanelHeader.AccessibleName = "PanelHeader";
+            // 
+            // PanelHeader
+            // 
+            this.PanelHeader.AccessibleName = "PanelHeader";
             this.PanelHeader.AutoSize = true;
             this.PanelHeader.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGPrimary;
             this.PanelHeader.BorderColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailColor;
@@ -159,8 +178,11 @@
             this.PanelHeader.Name = "PanelHeader";
             this.PanelHeader.Padding = new System.Windows.Forms.Padding(1);
             this.PanelHeader.Size = new System.Drawing.Size(567, 34);
-            this.PanelHeader.TabIndex = 14;
-                                             this.PanelBools.AccessibleName = "PanelBools";
+            this.PanelHeader.TabIndex = 0;
+            // 
+            // PanelBools
+            // 
+            this.PanelBools.AccessibleName = "PanelBools";
             this.PanelBools.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelBools.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
@@ -181,7 +203,10 @@
             this.PanelBools.Padding = new System.Windows.Forms.Padding(9);
             this.PanelBools.Size = new System.Drawing.Size(270, 216);
             this.PanelBools.TabIndex = 23;
-                                             this.PanelContent.AccessibleName = "PanelContent";
+            // 
+            // PanelContent
+            // 
+            this.PanelContent.AccessibleName = "PanelContent";
             this.PanelContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -192,8 +217,11 @@
             this.PanelContent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PanelContent.Name = "PanelContent";
             this.PanelContent.Size = new System.Drawing.Size(248, 194);
-            this.PanelContent.TabIndex = 15;
-                                             this.vScroll.AccessibleName = "vScroll";
+            this.PanelContent.TabIndex = 0;
+            // 
+            // vScroll
+            // 
+            this.vScroll.AccessibleName = "vScroll";
             this.vScroll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(36)))));
             this.vScroll.Dock = System.Windows.Forms.DockStyle.Right;
             this.vScroll.ForeColor = System.Drawing.Color.White;
@@ -205,9 +233,12 @@
             this.vScroll.Name = "vScroll";
             this.vScroll.Size = new System.Drawing.Size(12, 194);
             this.vScroll.SmallChange = 1;
-            this.vScroll.TabIndex = 14;
+            this.vScroll.TabIndex = 0;
             this.vScroll.Value = 0;
-                                             this.PanelBody.AccessibleName = "PanelBody";
+            // 
+            // PanelBody
+            // 
+            this.PanelBody.AccessibleName = "PanelBody";
             this.PanelBody.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -217,10 +248,10 @@
             this.PanelBody.BorderThickness = 1;
             this.PanelBody.Controls.Add(this.BtnChooseGamePath);
             this.PanelBody.Controls.Add(this.BtnChooseUserDataPath);
+            this.PanelBody.Controls.Add(this.BtnGamePathLabel);
+            this.PanelBody.Controls.Add(this.BtnUserDataPathLabel);
+            this.PanelBody.Controls.Add(this.BtnModLibraryPathLabel);
             this.PanelBody.Controls.Add(this.BtnChooseModPath);
-            this.PanelBody.Controls.Add(this.TextBoxModPath);
-            this.PanelBody.Controls.Add(this.TextBoxUserDataPath);
-            this.PanelBody.Controls.Add(this.TextBoxGamePath);
             this.PanelBody.Controls.Add(this.BtnTheme);
             this.PanelBody.Controls.Add(this.PanelThemeHeader);
             this.PanelBody.Controls.Add(this.PanelTogglesHeader);
@@ -235,8 +266,12 @@
             this.PanelBody.Name = "PanelBody";
             this.PanelBody.Padding = new System.Windows.Forms.Padding(9);
             this.PanelBody.Size = new System.Drawing.Size(567, 257);
-            this.PanelBody.TabIndex = 23;
-                                             this.BtnChooseGamePath.AccessibleName = "BtnChooseGamePath";
+            this.PanelBody.TabIndex = 0;
+            // 
+            // BtnChooseGamePath
+            // 
+            this.BtnChooseGamePath.AccessibleDescription = "Set path to your game directory (castle.exe).";
+            this.BtnChooseGamePath.AccessibleName = "BtnChooseGamePath";
             this.BtnChooseGamePath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnChooseGamePath.Animated = true;
             this.BtnChooseGamePath.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
@@ -262,11 +297,16 @@
             this.BtnChooseGamePath.Name = "BtnChooseGamePath";
             this.BtnChooseGamePath.PressedColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailActive;
             this.BtnChooseGamePath.Size = new System.Drawing.Size(37, 36);
-            this.BtnChooseGamePath.TabIndex = 27;
+            this.BtnChooseGamePath.TabIndex = 0;
             this.BtnChooseGamePath.Text = "...";
             this.BtnChooseGamePath.TextOffset = new System.Drawing.Point(0, -4);
             this.BtnChooseGamePath.Click += new System.EventHandler(this.BtnChoosePath_Click);
-                                             this.BtnChooseUserDataPath.AccessibleName = "BtnChooseUserDataPath";
+            this.BtnChooseGamePath.MouseHover += new System.EventHandler(this.BtnToolTip_MouseEnter);
+            // 
+            // BtnChooseUserDataPath
+            // 
+            this.BtnChooseUserDataPath.AccessibleDescription = "Set path to your user data directory (save files).";
+            this.BtnChooseUserDataPath.AccessibleName = "BtnChooseUserDataPath";
             this.BtnChooseUserDataPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnChooseUserDataPath.Animated = true;
             this.BtnChooseUserDataPath.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
@@ -292,11 +332,124 @@
             this.BtnChooseUserDataPath.Name = "BtnChooseUserDataPath";
             this.BtnChooseUserDataPath.PressedColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailActive;
             this.BtnChooseUserDataPath.Size = new System.Drawing.Size(37, 36);
-            this.BtnChooseUserDataPath.TabIndex = 27;
+            this.BtnChooseUserDataPath.TabIndex = 0;
             this.BtnChooseUserDataPath.Text = "...";
             this.BtnChooseUserDataPath.TextOffset = new System.Drawing.Point(0, -4);
             this.BtnChooseUserDataPath.Click += new System.EventHandler(this.BtnChoosePath_Click);
-                                             this.BtnChooseModPath.AccessibleName = "BtnChooseModPath";
+            this.BtnChooseUserDataPath.MouseHover += new System.EventHandler(this.BtnToolTip_MouseEnter);
+            // 
+            // BtnGamePathLabel
+            // 
+            this.BtnGamePathLabel.AccessibleDescription = "Set path to your game directory (castle.exe).";
+            this.BtnGamePathLabel.AccessibleName = "BtnGamePathLabel";
+            this.BtnGamePathLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnGamePathLabel.Animated = true;
+            this.BtnGamePathLabel.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
+            this.BtnGamePathLabel.BorderColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailColor;
+            this.BtnGamePathLabel.BorderRadius = global::QuillsModManagerV2.Properties.Settings.Default.BorderRadius;
+            this.BtnGamePathLabel.BorderThickness = 1;
+            this.BtnGamePathLabel.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.BtnGamePathLabel.CustomizableEdges.BottomRight = false;
+            this.BtnGamePathLabel.CustomizableEdges.TopRight = false;
+            this.BtnGamePathLabel.DataBindings.Add(new System.Windows.Forms.Binding("FillColor", global::QuillsModManagerV2.Properties.Settings.Default, "ButtonColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnGamePathLabel.DataBindings.Add(new System.Windows.Forms.Binding("BorderRadius", global::QuillsModManagerV2.Properties.Settings.Default, "BorderRadius", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnGamePathLabel.DataBindings.Add(new System.Windows.Forms.Binding("BorderColor", global::QuillsModManagerV2.Properties.Settings.Default, "DetailColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnGamePathLabel.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::QuillsModManagerV2.Properties.Settings.Default, "BGSecondary", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnGamePathLabel.DataBindings.Add(new System.Windows.Forms.Binding("PressedColor", global::QuillsModManagerV2.Properties.Settings.Default, "DetailActive", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnGamePathLabel.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::QuillsModManagerV2.Properties.Settings.Default, "PlaceholderColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnGamePathLabel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnGamePathLabel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnGamePathLabel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnGamePathLabel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnGamePathLabel.FillColor = global::QuillsModManagerV2.Properties.Settings.Default.ButtonColor;
+            this.BtnGamePathLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BtnGamePathLabel.ForeColor = global::QuillsModManagerV2.Properties.Settings.Default.PlaceholderColor;
+            this.BtnGamePathLabel.Location = new System.Drawing.Point(11, 11);
+            this.BtnGamePathLabel.Name = "BtnGamePathLabel";
+            this.BtnGamePathLabel.PressedColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailActive;
+            this.BtnGamePathLabel.Size = new System.Drawing.Size(229, 36);
+            this.BtnGamePathLabel.TabIndex = 0;
+            this.BtnGamePathLabel.Text = "Game Path";
+            this.BtnGamePathLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BtnGamePathLabel.Click += new System.EventHandler(this.BtnChoosePath_Click);
+            this.BtnGamePathLabel.MouseHover += new System.EventHandler(this.BtnToolTip_MouseEnter);
+            // 
+            // BtnUserDataPathLabel
+            // 
+            this.BtnUserDataPathLabel.AccessibleDescription = "Set path to your user data directory (save files).";
+            this.BtnUserDataPathLabel.AccessibleName = "BtnUserDataPathLabel";
+            this.BtnUserDataPathLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnUserDataPathLabel.Animated = true;
+            this.BtnUserDataPathLabel.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
+            this.BtnUserDataPathLabel.BorderColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailColor;
+            this.BtnUserDataPathLabel.BorderRadius = global::QuillsModManagerV2.Properties.Settings.Default.BorderRadius;
+            this.BtnUserDataPathLabel.BorderThickness = 1;
+            this.BtnUserDataPathLabel.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.BtnUserDataPathLabel.CustomizableEdges.BottomRight = false;
+            this.BtnUserDataPathLabel.CustomizableEdges.TopRight = false;
+            this.BtnUserDataPathLabel.DataBindings.Add(new System.Windows.Forms.Binding("FillColor", global::QuillsModManagerV2.Properties.Settings.Default, "ButtonColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnUserDataPathLabel.DataBindings.Add(new System.Windows.Forms.Binding("BorderRadius", global::QuillsModManagerV2.Properties.Settings.Default, "BorderRadius", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnUserDataPathLabel.DataBindings.Add(new System.Windows.Forms.Binding("BorderColor", global::QuillsModManagerV2.Properties.Settings.Default, "DetailColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnUserDataPathLabel.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::QuillsModManagerV2.Properties.Settings.Default, "BGSecondary", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnUserDataPathLabel.DataBindings.Add(new System.Windows.Forms.Binding("PressedColor", global::QuillsModManagerV2.Properties.Settings.Default, "DetailActive", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnUserDataPathLabel.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::QuillsModManagerV2.Properties.Settings.Default, "PlaceholderColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnUserDataPathLabel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnUserDataPathLabel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnUserDataPathLabel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnUserDataPathLabel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnUserDataPathLabel.FillColor = global::QuillsModManagerV2.Properties.Settings.Default.ButtonColor;
+            this.BtnUserDataPathLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BtnUserDataPathLabel.ForeColor = global::QuillsModManagerV2.Properties.Settings.Default.PlaceholderColor;
+            this.BtnUserDataPathLabel.Location = new System.Drawing.Point(11, 57);
+            this.BtnUserDataPathLabel.Name = "BtnUserDataPathLabel";
+            this.BtnUserDataPathLabel.PressedColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailActive;
+            this.BtnUserDataPathLabel.Size = new System.Drawing.Size(229, 36);
+            this.BtnUserDataPathLabel.TabIndex = 0;
+            this.BtnUserDataPathLabel.Text = "User Data Path";
+            this.BtnUserDataPathLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BtnUserDataPathLabel.Click += new System.EventHandler(this.BtnChoosePath_Click);
+            this.BtnUserDataPathLabel.MouseHover += new System.EventHandler(this.BtnToolTip_MouseEnter);
+            // 
+            // BtnModLibraryPathLabel
+            // 
+            this.BtnModLibraryPathLabel.AccessibleDescription = "Set path to your mod collection/library (select folder).";
+            this.BtnModLibraryPathLabel.AccessibleName = "BtnModLibraryPathLabel";
+            this.BtnModLibraryPathLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnModLibraryPathLabel.Animated = true;
+            this.BtnModLibraryPathLabel.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
+            this.BtnModLibraryPathLabel.BorderColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailColor;
+            this.BtnModLibraryPathLabel.BorderRadius = global::QuillsModManagerV2.Properties.Settings.Default.BorderRadius;
+            this.BtnModLibraryPathLabel.BorderThickness = 1;
+            this.BtnModLibraryPathLabel.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.BtnModLibraryPathLabel.CustomizableEdges.BottomRight = false;
+            this.BtnModLibraryPathLabel.CustomizableEdges.TopRight = false;
+            this.BtnModLibraryPathLabel.DataBindings.Add(new System.Windows.Forms.Binding("FillColor", global::QuillsModManagerV2.Properties.Settings.Default, "ButtonColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnModLibraryPathLabel.DataBindings.Add(new System.Windows.Forms.Binding("BorderRadius", global::QuillsModManagerV2.Properties.Settings.Default, "BorderRadius", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnModLibraryPathLabel.DataBindings.Add(new System.Windows.Forms.Binding("BorderColor", global::QuillsModManagerV2.Properties.Settings.Default, "DetailColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnModLibraryPathLabel.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::QuillsModManagerV2.Properties.Settings.Default, "BGSecondary", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnModLibraryPathLabel.DataBindings.Add(new System.Windows.Forms.Binding("PressedColor", global::QuillsModManagerV2.Properties.Settings.Default, "DetailActive", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnModLibraryPathLabel.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::QuillsModManagerV2.Properties.Settings.Default, "PlaceholderColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnModLibraryPathLabel.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnModLibraryPathLabel.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnModLibraryPathLabel.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnModLibraryPathLabel.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnModLibraryPathLabel.FillColor = global::QuillsModManagerV2.Properties.Settings.Default.ButtonColor;
+            this.BtnModLibraryPathLabel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BtnModLibraryPathLabel.ForeColor = global::QuillsModManagerV2.Properties.Settings.Default.PlaceholderColor;
+            this.BtnModLibraryPathLabel.Location = new System.Drawing.Point(11, 103);
+            this.BtnModLibraryPathLabel.Name = "BtnModLibraryPathLabel";
+            this.BtnModLibraryPathLabel.PressedColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailActive;
+            this.BtnModLibraryPathLabel.Size = new System.Drawing.Size(229, 36);
+            this.BtnModLibraryPathLabel.TabIndex = 0;
+            this.BtnModLibraryPathLabel.Text = "Mod Library Path";
+            this.BtnModLibraryPathLabel.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BtnModLibraryPathLabel.Click += new System.EventHandler(this.BtnChoosePath_Click);
+            this.BtnModLibraryPathLabel.MouseHover += new System.EventHandler(this.BtnToolTip_MouseEnter);
+            // 
+            // BtnChooseModPath
+            // 
+            this.BtnChooseModPath.AccessibleDescription = "Set path to your mod collection/library (select folder).";
+            this.BtnChooseModPath.AccessibleName = "BtnChooseModPath";
             this.BtnChooseModPath.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnChooseModPath.Animated = true;
             this.BtnChooseModPath.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
@@ -322,116 +475,16 @@
             this.BtnChooseModPath.Name = "BtnChooseModPath";
             this.BtnChooseModPath.PressedColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailActive;
             this.BtnChooseModPath.Size = new System.Drawing.Size(37, 36);
-            this.BtnChooseModPath.TabIndex = 27;
+            this.BtnChooseModPath.TabIndex = 0;
             this.BtnChooseModPath.Text = "...";
             this.BtnChooseModPath.TextOffset = new System.Drawing.Point(0, -4);
             this.BtnChooseModPath.Click += new System.EventHandler(this.BtnChoosePath_Click);
-                                             this.TextBoxModPath.AccessibleName = "TextBoxModPath";
-            this.TextBoxModPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxModPath.Animated = true;
-            this.TextBoxModPath.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
-            this.TextBoxModPath.BorderColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailColor;
-            this.TextBoxModPath.BorderRadius = global::QuillsModManagerV2.Properties.Settings.Default.BorderRadius;
-            this.TextBoxModPath.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TextBoxModPath.CustomizableEdges.BottomRight = false;
-            this.TextBoxModPath.CustomizableEdges.TopRight = false;
-            this.TextBoxModPath.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::QuillsModManagerV2.Properties.Settings.Default, "BGSecondary", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TextBoxModPath.DataBindings.Add(new System.Windows.Forms.Binding("BorderColor", global::QuillsModManagerV2.Properties.Settings.Default, "DetailColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TextBoxModPath.DataBindings.Add(new System.Windows.Forms.Binding("BorderRadius", global::QuillsModManagerV2.Properties.Settings.Default, "BorderRadius", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TextBoxModPath.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::QuillsModManagerV2.Properties.Settings.Default, "TextColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TextBoxModPath.DataBindings.Add(new System.Windows.Forms.Binding("PlaceholderForeColor", global::QuillsModManagerV2.Properties.Settings.Default, "PlaceholderColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TextBoxModPath.DataBindings.Add(new System.Windows.Forms.Binding("FillColor", global::QuillsModManagerV2.Properties.Settings.Default, "ButtonColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TextBoxModPath.DefaultText = "";
-            this.TextBoxModPath.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.TextBoxModPath.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.TextBoxModPath.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TextBoxModPath.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TextBoxModPath.FillColor = global::QuillsModManagerV2.Properties.Settings.Default.ButtonColor;
-            this.TextBoxModPath.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TextBoxModPath.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.TextBoxModPath.ForeColor = global::QuillsModManagerV2.Properties.Settings.Default.TextColor;
-            this.TextBoxModPath.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TextBoxModPath.Location = new System.Drawing.Point(11, 103);
-            this.TextBoxModPath.Name = "TextBoxModPath";
-            this.TextBoxModPath.PasswordChar = '\0';
-            this.TextBoxModPath.PlaceholderForeColor = global::QuillsModManagerV2.Properties.Settings.Default.PlaceholderColor;
-            this.TextBoxModPath.PlaceholderText = "Mod Library Path";
-            this.TextBoxModPath.ReadOnly = true;
-            this.TextBoxModPath.SelectedText = "";
-            this.TextBoxModPath.Size = new System.Drawing.Size(229, 36);
-            this.TextBoxModPath.TabIndex = 28;
-                                             this.TextBoxUserDataPath.AccessibleName = "TextBoxUserDataPath";
-            this.TextBoxUserDataPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxUserDataPath.Animated = true;
-            this.TextBoxUserDataPath.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
-            this.TextBoxUserDataPath.BorderColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailColor;
-            this.TextBoxUserDataPath.BorderRadius = global::QuillsModManagerV2.Properties.Settings.Default.BorderRadius;
-            this.TextBoxUserDataPath.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TextBoxUserDataPath.CustomizableEdges.BottomRight = false;
-            this.TextBoxUserDataPath.CustomizableEdges.TopRight = false;
-            this.TextBoxUserDataPath.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::QuillsModManagerV2.Properties.Settings.Default, "BGSecondary", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TextBoxUserDataPath.DataBindings.Add(new System.Windows.Forms.Binding("BorderColor", global::QuillsModManagerV2.Properties.Settings.Default, "DetailColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TextBoxUserDataPath.DataBindings.Add(new System.Windows.Forms.Binding("BorderRadius", global::QuillsModManagerV2.Properties.Settings.Default, "BorderRadius", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TextBoxUserDataPath.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::QuillsModManagerV2.Properties.Settings.Default, "TextColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TextBoxUserDataPath.DataBindings.Add(new System.Windows.Forms.Binding("PlaceholderForeColor", global::QuillsModManagerV2.Properties.Settings.Default, "PlaceholderColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TextBoxUserDataPath.DataBindings.Add(new System.Windows.Forms.Binding("FillColor", global::QuillsModManagerV2.Properties.Settings.Default, "ButtonColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TextBoxUserDataPath.DefaultText = "";
-            this.TextBoxUserDataPath.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.TextBoxUserDataPath.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.TextBoxUserDataPath.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TextBoxUserDataPath.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TextBoxUserDataPath.FillColor = global::QuillsModManagerV2.Properties.Settings.Default.ButtonColor;
-            this.TextBoxUserDataPath.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TextBoxUserDataPath.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.TextBoxUserDataPath.ForeColor = global::QuillsModManagerV2.Properties.Settings.Default.TextColor;
-            this.TextBoxUserDataPath.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TextBoxUserDataPath.Location = new System.Drawing.Point(11, 57);
-            this.TextBoxUserDataPath.Name = "TextBoxUserDataPath";
-            this.TextBoxUserDataPath.PasswordChar = '\0';
-            this.TextBoxUserDataPath.PlaceholderForeColor = global::QuillsModManagerV2.Properties.Settings.Default.PlaceholderColor;
-            this.TextBoxUserDataPath.PlaceholderText = "User Data Path";
-            this.TextBoxUserDataPath.ReadOnly = true;
-            this.TextBoxUserDataPath.SelectedText = "";
-            this.TextBoxUserDataPath.Size = new System.Drawing.Size(229, 36);
-            this.TextBoxUserDataPath.TabIndex = 28;
-                                             this.TextBoxGamePath.AccessibleName = "TextBoxGamePath";
-            this.TextBoxGamePath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TextBoxGamePath.Animated = true;
-            this.TextBoxGamePath.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
-            this.TextBoxGamePath.BorderColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailColor;
-            this.TextBoxGamePath.BorderRadius = global::QuillsModManagerV2.Properties.Settings.Default.BorderRadius;
-            this.TextBoxGamePath.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.TextBoxGamePath.CustomizableEdges.BottomRight = false;
-            this.TextBoxGamePath.CustomizableEdges.TopRight = false;
-            this.TextBoxGamePath.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::QuillsModManagerV2.Properties.Settings.Default, "BGSecondary", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TextBoxGamePath.DataBindings.Add(new System.Windows.Forms.Binding("BorderColor", global::QuillsModManagerV2.Properties.Settings.Default, "DetailColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TextBoxGamePath.DataBindings.Add(new System.Windows.Forms.Binding("BorderRadius", global::QuillsModManagerV2.Properties.Settings.Default, "BorderRadius", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TextBoxGamePath.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::QuillsModManagerV2.Properties.Settings.Default, "TextColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TextBoxGamePath.DataBindings.Add(new System.Windows.Forms.Binding("PlaceholderForeColor", global::QuillsModManagerV2.Properties.Settings.Default, "PlaceholderColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TextBoxGamePath.DataBindings.Add(new System.Windows.Forms.Binding("FillColor", global::QuillsModManagerV2.Properties.Settings.Default, "ButtonColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.TextBoxGamePath.DefaultText = "";
-            this.TextBoxGamePath.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
-            this.TextBoxGamePath.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
-            this.TextBoxGamePath.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TextBoxGamePath.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
-            this.TextBoxGamePath.FillColor = global::QuillsModManagerV2.Properties.Settings.Default.ButtonColor;
-            this.TextBoxGamePath.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TextBoxGamePath.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.TextBoxGamePath.ForeColor = global::QuillsModManagerV2.Properties.Settings.Default.TextColor;
-            this.TextBoxGamePath.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.TextBoxGamePath.Location = new System.Drawing.Point(11, 11);
-            this.TextBoxGamePath.Name = "TextBoxGamePath";
-            this.TextBoxGamePath.PasswordChar = '\0';
-            this.TextBoxGamePath.PlaceholderForeColor = global::QuillsModManagerV2.Properties.Settings.Default.PlaceholderColor;
-            this.TextBoxGamePath.PlaceholderText = "Game Path";
-            this.TextBoxGamePath.ReadOnly = true;
-            this.TextBoxGamePath.SelectedText = "";
-            this.TextBoxGamePath.Size = new System.Drawing.Size(229, 36);
-            this.TextBoxGamePath.TabIndex = 28;
-                                             this.BtnTheme.AccessibleName = "BtnTheme";
+            this.BtnChooseModPath.MouseHover += new System.EventHandler(this.BtnToolTip_MouseEnter);
+            // 
+            // BtnTheme
+            // 
+            this.BtnTheme.AccessibleDescription = "Customize the theme/look of the appication.";
+            this.BtnTheme.AccessibleName = "BtnTheme";
             this.BtnTheme.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnTheme.Animated = true;
@@ -460,9 +513,13 @@
             this.BtnTheme.Name = "BtnTheme";
             this.BtnTheme.PressedColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailActive;
             this.BtnTheme.Size = new System.Drawing.Size(265, 78);
-            this.BtnTheme.TabIndex = 27;
+            this.BtnTheme.TabIndex = 0;
             this.BtnTheme.Click += new System.EventHandler(this.BtnTheme_Click);
-                                             this.PanelThemeHeader.AccessibleName = "PanelThemeHeader";
+            this.BtnTheme.MouseHover += new System.EventHandler(this.BtnToolTip_MouseEnter);
+            // 
+            // PanelThemeHeader
+            // 
+            this.PanelThemeHeader.AccessibleName = "PanelThemeHeader";
             this.PanelThemeHeader.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelThemeHeader.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
@@ -480,8 +537,11 @@
             this.PanelThemeHeader.Location = new System.Drawing.Point(11, 149);
             this.PanelThemeHeader.Name = "PanelThemeHeader";
             this.PanelThemeHeader.Size = new System.Drawing.Size(265, 20);
-            this.PanelThemeHeader.TabIndex = 26;
-                                             this.LabelThemeTitle.AccessibleName = "LabelThemeTitle";
+            this.PanelThemeHeader.TabIndex = 0;
+            // 
+            // LabelThemeTitle
+            // 
+            this.LabelThemeTitle.AccessibleName = "LabelThemeTitle";
             this.LabelThemeTitle.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelThemeTitle.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
@@ -492,10 +552,13 @@
             this.LabelThemeTitle.Location = new System.Drawing.Point(21, 2);
             this.LabelThemeTitle.Name = "LabelThemeTitle";
             this.LabelThemeTitle.Size = new System.Drawing.Size(218, 15);
-            this.LabelThemeTitle.TabIndex = 27;
+            this.LabelThemeTitle.TabIndex = 0;
             this.LabelThemeTitle.Text = "Theme Designer";
             this.LabelThemeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-                                             this.PanelTogglesHeader.AccessibleName = "PanelTogglesHeader";
+            // 
+            // PanelTogglesHeader
+            // 
+            this.PanelTogglesHeader.AccessibleName = "PanelTogglesHeader";
             this.PanelTogglesHeader.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelTogglesHeader.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
             this.PanelTogglesHeader.BorderColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailColor;
@@ -512,8 +575,11 @@
             this.PanelTogglesHeader.Location = new System.Drawing.Point(286, 11);
             this.PanelTogglesHeader.Name = "PanelTogglesHeader";
             this.PanelTogglesHeader.Size = new System.Drawing.Size(270, 20);
-            this.PanelTogglesHeader.TabIndex = 26;
-                                             this.LabelTogglesTitle.AccessibleName = "LabelTogglesTitle";
+            this.PanelTogglesHeader.TabIndex = 0;
+            // 
+            // LabelTogglesTitle
+            // 
+            this.LabelTogglesTitle.AccessibleName = "LabelTogglesTitle";
             this.LabelTogglesTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelTogglesTitle.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
             this.LabelTogglesTitle.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::QuillsModManagerV2.Properties.Settings.Default, "BGTertiary", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -526,7 +592,10 @@
             this.LabelTogglesTitle.TabIndex = 27;
             this.LabelTogglesTitle.Text = "Toggle Settings";
             this.LabelTogglesTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-                                             this.AccessibleName = "FormSettings";
+            // 
+            // FormSettings
+            // 
+            this.AccessibleName = "FormSettings";
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGPrimary;
@@ -573,13 +642,13 @@
         private Guna.UI2.WinForms.Guna2Panel PanelTogglesHeader;
         private System.Windows.Forms.Label LabelTogglesTitle;
         private Guna.UI2.WinForms.Guna2Button BtnTheme;
-        private Guna.UI2.WinForms.Guna2TextBox TextBoxGamePath;
-        private Guna.UI2.WinForms.Guna2TextBox TextBoxUserDataPath;
         private Guna.UI2.WinForms.Guna2Panel PanelThemeHeader;
         private System.Windows.Forms.Label LabelThemeTitle;
-        private Guna.UI2.WinForms.Guna2TextBox TextBoxModPath;
         private Guna.UI2.WinForms.Guna2Button BtnChooseGamePath;
         private Guna.UI2.WinForms.Guna2Button BtnChooseUserDataPath;
         private Guna.UI2.WinForms.Guna2Button BtnChooseModPath;
+        private Guna.UI2.WinForms.Guna2Button BtnModLibraryPathLabel;
+        private Guna.UI2.WinForms.Guna2Button BtnUserDataPathLabel;
+        private Guna.UI2.WinForms.Guna2Button BtnGamePathLabel;
     }
 }

@@ -35,15 +35,21 @@
             this.TxtNotif = new System.Windows.Forms.Label();
             this.HotkeyBox.SuspendLayout();
             this.SuspendLayout();
-                                             this.PanelNotifColor.AccessibleName = "PanelNotifColor";
+            // 
+            // PanelNotifColor
+            // 
+            this.PanelNotifColor.AccessibleName = "PanelNotifColor";
             this.PanelNotifColor.BackColor = System.Drawing.Color.White;
             this.PanelNotifColor.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PanelNotifColor.FillColor = System.Drawing.Color.White;
             this.PanelNotifColor.Location = new System.Drawing.Point(0, 0);
             this.PanelNotifColor.Name = "PanelNotifColor";
             this.PanelNotifColor.Size = new System.Drawing.Size(5, 313);
-            this.PanelNotifColor.TabIndex = 7;
-                                             this.HotkeyBox.AccessibleName = "HotkeyBox";
+            this.PanelNotifColor.TabIndex = 0;
+            // 
+            // HotkeyBox
+            // 
+            this.HotkeyBox.AccessibleName = "HotkeyBox";
             this.HotkeyBox.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
             this.HotkeyBox.BorderColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailColor;
             this.HotkeyBox.BorderThickness = 1;
@@ -56,8 +62,11 @@
             this.HotkeyBox.Location = new System.Drawing.Point(15, 10);
             this.HotkeyBox.Name = "HotkeyBox";
             this.HotkeyBox.Size = new System.Drawing.Size(220, 167);
-            this.HotkeyBox.TabIndex = 8;
-                                             this.LabelTitle.AccessibleName = "LabelTitle";
+            this.HotkeyBox.TabIndex = 0;
+            // 
+            // LabelTitle
+            // 
+            this.LabelTitle.AccessibleName = "LabelTitle";
             this.LabelTitle.AutoSize = true;
             this.LabelTitle.BackColor = System.Drawing.Color.Transparent;
             this.LabelTitle.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -67,10 +76,13 @@
             this.LabelTitle.Location = new System.Drawing.Point(10, 10);
             this.LabelTitle.Name = "LabelTitle";
             this.LabelTitle.Size = new System.Drawing.Size(132, 21);
-            this.LabelTitle.TabIndex = 3;
+            this.LabelTitle.TabIndex = 0;
             this.LabelTitle.Text = "Placeholder Title";
             this.LabelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                                             this.TxtNotif.AccessibleName = "TxtNotif";
+            // 
+            // TxtNotif
+            // 
+            this.TxtNotif.AccessibleName = "TxtNotif";
             this.TxtNotif.AutoSize = true;
             this.TxtNotif.BackColor = System.Drawing.Color.Transparent;
             this.TxtNotif.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -80,11 +92,14 @@
             this.TxtNotif.Location = new System.Drawing.Point(10, 30);
             this.TxtNotif.Name = "TxtNotif";
             this.TxtNotif.Size = new System.Drawing.Size(200, 126);
-            this.TxtNotif.TabIndex = 3;
+            this.TxtNotif.TabIndex = 0;
             this.TxtNotif.Text = "Escape = Close Window\r\nCtrl + W = Close Window\r\nCtrl + S = Save Settings\r\nEnter =" +
     " Screenshot\r\nCtrl + C = Copy Screenshot\r\nCtrl + S = Save Screenshot";
             this.TxtNotif.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                                             this.AccessibleName = "FormHotKeys";
+            // 
+            // FormHotKeys
+            // 
+            this.AccessibleName = "FormHotKeys";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGPrimary;

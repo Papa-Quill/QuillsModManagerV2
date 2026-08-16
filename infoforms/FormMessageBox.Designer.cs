@@ -43,7 +43,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.ImgIcon)).BeginInit();
             this.PanelBody.SuspendLayout();
             this.SuspendLayout();
-                                             this.LabelTitle.AccessibleName = "LabelTitle";
+            // 
+            // LabelTitle
+            // 
+            this.LabelTitle.AccessibleName = "LabelTitle";
             this.LabelTitle.AutoSize = true;
             this.LabelTitle.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
             this.LabelTitle.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::QuillsModManagerV2.Properties.Settings.Default, "TextColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -54,10 +57,13 @@
             this.LabelTitle.Location = new System.Drawing.Point(54, 16);
             this.LabelTitle.Name = "LabelTitle";
             this.LabelTitle.Size = new System.Drawing.Size(100, 21);
-            this.LabelTitle.TabIndex = 5;
+            this.LabelTitle.TabIndex = 0;
             this.LabelTitle.Text = "LabelTitle";
             this.LabelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                                             this.BtnClose.AccessibleName = "BtnClose";
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.AccessibleName = "BtnClose";
             this.BtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnClose.Animated = true;
             this.BtnClose.BackColor = System.Drawing.Color.Transparent;
@@ -78,7 +84,10 @@
             this.BtnClose.TabIndex = 8;
             this.BtnClose.UseTransparentBackground = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
-                                             this.PanelHeader.AccessibleName = "PanelHeader";
+            // 
+            // PanelHeader
+            // 
+            this.PanelHeader.AccessibleName = "PanelHeader";
             this.PanelHeader.AutoSize = true;
             this.PanelHeader.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGPrimary;
             this.PanelHeader.BorderColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailColor;
@@ -98,8 +107,11 @@
             this.PanelHeader.Name = "PanelHeader";
             this.PanelHeader.Padding = new System.Windows.Forms.Padding(1);
             this.PanelHeader.Size = new System.Drawing.Size(540, 34);
-            this.PanelHeader.TabIndex = 6;
-                                             this.ImgIcon.AccessibleName = "ImgIcon";
+            this.PanelHeader.TabIndex = 0;
+            // 
+            // ImgIcon
+            // 
+            this.ImgIcon.AccessibleName = "ImgIcon";
             this.ImgIcon.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
             this.ImgIcon.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::QuillsModManagerV2.Properties.Settings.Default, "BGTertiary", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.ImgIcon.Image = global::QuillsModManagerV2.Properties.Resources.AnimatedQuillDiamond;
@@ -109,7 +121,10 @@
             this.ImgIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ImgIcon.TabIndex = 0;
             this.ImgIcon.TabStop = false;
-                                             this.PanelBody.AccessibleName = "PanelBody";
+            // 
+            // PanelBody
+            // 
+            this.PanelBody.AccessibleName = "PanelBody";
             this.PanelBody.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -126,8 +141,11 @@
             this.PanelBody.Location = new System.Drawing.Point(10, 53);
             this.PanelBody.Name = "PanelBody";
             this.PanelBody.Size = new System.Drawing.Size(540, 209);
-            this.PanelBody.TabIndex = 7;
-                                             this.LabelMessage.AccessibleName = "LabelMessage";
+            this.PanelBody.TabIndex = 0;
+            // 
+            // LabelMessage
+            // 
+            this.LabelMessage.AccessibleName = "LabelMessage";
             this.LabelMessage.AutoSize = true;
             this.LabelMessage.BackColor = System.Drawing.Color.Transparent;
             this.LabelMessage.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::QuillsModManagerV2.Properties.Settings.Default, "TxtNotif", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -138,9 +156,12 @@
             this.LabelMessage.MaximumSize = new System.Drawing.Size(522, 1000);
             this.LabelMessage.Name = "LabelMessage";
             this.LabelMessage.Size = new System.Drawing.Size(64, 21);
-            this.LabelMessage.TabIndex = 17;
+            this.LabelMessage.TabIndex = 0;
             this.LabelMessage.Text = global::QuillsModManagerV2.Properties.Settings.Default.TxtNotif;
-                                             this.BtnNo.AccessibleName = "BtnNo";
+            // 
+            // BtnNo
+            // 
+            this.BtnNo.AccessibleName = "BtnNo";
             this.BtnNo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnNo.Animated = true;
             this.BtnNo.BackColor = System.Drawing.Color.Transparent;
@@ -157,10 +178,13 @@
             this.BtnNo.MaximumSize = new System.Drawing.Size(37, 32);
             this.BtnNo.Name = "BtnNo";
             this.BtnNo.Size = new System.Drawing.Size(37, 32);
-            this.BtnNo.TabIndex = 8;
+            this.BtnNo.TabIndex = 0;
             this.BtnNo.UseTransparentBackground = true;
             this.BtnNo.Click += new System.EventHandler(this.BtnClose_Click);
-                                             this.BtnYes.AccessibleName = "BtnYes";
+            // 
+            // BtnYes
+            // 
+            this.BtnYes.AccessibleName = "BtnYes";
             this.BtnYes.Animated = true;
             this.BtnYes.BackColor = System.Drawing.Color.Transparent;
             this.BtnYes.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(66)))));
@@ -179,17 +203,23 @@
             this.BtnYes.Location = new System.Drawing.Point(512, 11);
             this.BtnYes.Name = "BtnYes";
             this.BtnYes.Size = new System.Drawing.Size(37, 32);
-            this.BtnYes.TabIndex = 35;
+            this.BtnYes.TabIndex = 0;
             this.BtnYes.UseTransparentBackground = true;
             this.BtnYes.Click += new System.EventHandler(this.BtnYes_Click);
-                                             this.FormMessageBoxEProperties.ContainerControl = this;
+            // 
+            // FormMessageBoxEProperties
+            // 
+            this.FormMessageBoxEProperties.ContainerControl = this;
             this.FormMessageBoxEProperties.DockForm = false;
             this.FormMessageBoxEProperties.DockIndicatorTransparencyValue = 0.6D;
             this.FormMessageBoxEProperties.DragForm = false;
             this.FormMessageBoxEProperties.ResizeForm = false;
             this.FormMessageBoxEProperties.ShadowColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailActive;
             this.FormMessageBoxEProperties.TransparentWhileDrag = true;
-                                             this.AccessibleName = "FormMessageBox";
+            // 
+            // FormMessageBox
+            // 
+            this.AccessibleName = "FormMessageBox";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGPrimary;

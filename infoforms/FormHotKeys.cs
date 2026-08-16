@@ -68,25 +68,18 @@ namespace QuillsModManagerV2.InfoForms
                     "Escape = Close Window\r\nCtrl + W = Close Window"
                 ),
                 ["Main"] = (
-                    11000,
-                    285,
-                    274,
-                    "Hotkeys - Main",
-                    "Escape (x2) = Close Application\r\nCtrl + W (x2) = Close Application\r\nCtrl + Shift + C = Connect\r\nCtrl + D = Power Control\r\nCtrl + Q = Quick Launch\r\nCtrl + S = Screenshot Tool\r\nCtrl + E = User Settings\r\nEnter = Send Command\r\nTab = Focus Input\r\nCtrl + Shift + V = Send Clipboard"
-                ),
-                ["Screenshot"] = (
                     7000,
-                    245,
-                    190,
-                    "Hotkeys - Screenshot",
-                    "Escape = Close Window\r\nCtrl + W = Close Window\r\nCtrl + C = Copy Screenshot\r\nCtrl + S = Save Screenshot\r\nEnter = Screenshot\r\nBackspace/Delete = Clear"
+                    285,
+                    168,
+                    "Hotkeys - Main",
+                    "Escape (x2) = Close Application\r\nCtrl + W (x2) = Close Application\r\nCtrl + E = Open Appdata\r\nCtrl + S = Settings\r\nCtrl + R = Profile Manager"
                 ),
                 ["Settings"] = (
                     5000,
                     232,
                     124,
                     "Hotkeys - Settings",
-                    "Escape = Close Window\r\nCtrl + W = Close Window\r\nCtrl + S = Save Settings"
+                    "Escape = Close Window\r\nCtrl + W = Close Window\r\nCtrl + T = Theme Manager"
                 ),
                 ["Color"] = (
                     5000,

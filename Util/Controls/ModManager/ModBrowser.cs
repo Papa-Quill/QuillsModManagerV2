@@ -36,7 +36,7 @@ namespace QuillsModManagerV2.Util.Controls
 
             listViewMods = new ModListView { Dock = DockStyle.Fill };
 
-            var set = Properties.Settings.Default;
+            var set = Settings.Default;
             listViewMods.BackColor = set.BGTertiary;
             listViewMods.ForeColor = set.TextColor;
             listViewMods.Font = new Font("Segoe UI", 9F);
@@ -102,7 +102,7 @@ namespace QuillsModManagerV2.Util.Controls
 
             try
             {
-                Properties.Settings.Default.PropertyChanged += Settings_PropertyChanged;
+                Settings.Default.PropertyChanged += Settings_PropertyChanged;
             }
             catch { }
 

@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
 using QuillsModManagerV2.InfoForms;
 using QuillsModManagerV2.Properties;
 using QuillsModManagerV2.Util.Controls.AnimatedList;
@@ -101,6 +102,12 @@ namespace QuillsModManagerV2.Util.Controls.ModManager
                 default:
                     return base.ProcessCmdKey(ref msg, keyData);
             }
+        }
+
+        private void BtnToolTip_MouseEnter(object sender, EventArgs e)
+        {
+            if (sender is Guna2Button button && button.AccessibleDescription is string tooltipText)
+                ToolTipUtil.SetToolTip(button, tooltipText);
         }
 
         private void RefreshSettingsTheme()
@@ -287,7 +294,6 @@ namespace QuillsModManagerV2.Util.Controls.ModManager
                     Height = 28,
                     BackColor = Color.Transparent,
                     ForeColor = Settings.Default.TextColor,
-                    Font = this.Font,
                     TextAlign = ContentAlignment.MiddleLeft
                 };
 
@@ -337,7 +343,7 @@ namespace QuillsModManagerV2.Util.Controls.ModManager
                         catch { }
                         try
                         {
-                            Util.UpdateTheme.RegisterIcons(pbSave);
+                            UpdateTheme.RegisterIcons(pbSave);
                         }
                         catch { }
                         lbl.Left = pbSave.Right + 6;
@@ -521,7 +527,7 @@ namespace QuillsModManagerV2.Util.Controls.ModManager
         {
             try
             {
-                if (QuillsModManagerV2.Util.Controls.DeploymentManager.IsOperationRunning)
+                if (DeploymentManager.IsOperationRunning)
                 {
                     try
                     {
@@ -570,7 +576,7 @@ namespace QuillsModManagerV2.Util.Controls.ModManager
         {
             try
             {
-                if (QuillsModManagerV2.Util.Controls.DeploymentManager.IsOperationRunning)
+                if (DeploymentManager.IsOperationRunning)
                 {
                     try
                     {
@@ -594,7 +600,6 @@ namespace QuillsModManagerV2.Util.Controls.ModManager
                     string.IsNullOrWhiteSpace(steamUserId) || string.IsNullOrWhiteSpace(profileName)
                 )
                     return;
-                ToastUtil.CreateToast("Enter a new name for the profile.");
 
                 var inputDialog = new FormUserInputDialog("Rename", profileName);
                 inputDialog.FormClosed += (s, e) =>
@@ -640,7 +645,7 @@ namespace QuillsModManagerV2.Util.Controls.ModManager
         {
             try
             {
-                if (QuillsModManagerV2.Util.Controls.DeploymentManager.IsOperationRunning)
+                if (DeploymentManager.IsOperationRunning)
                 {
                     try
                     {
@@ -685,7 +690,7 @@ namespace QuillsModManagerV2.Util.Controls.ModManager
         {
             try
             {
-                if (QuillsModManagerV2.Util.Controls.DeploymentManager.IsOperationRunning)
+                if (DeploymentManager.IsOperationRunning)
                 {
                     try
                     {
@@ -731,7 +736,7 @@ namespace QuillsModManagerV2.Util.Controls.ModManager
         {
             try
             {
-                if (QuillsModManagerV2.Util.Controls.DeploymentManager.IsOperationRunning)
+                if (DeploymentManager.IsOperationRunning)
                 {
                     try
                     {

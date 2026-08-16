@@ -1,10 +1,10 @@
-﻿using Guna.UI2.WinForms;
-using QuillsModManagerV2.Properties;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using Guna.UI2.WinForms;
+using QuillsModManagerV2.Properties;
 
 namespace QuillsModManagerV2.Util
 {
@@ -26,7 +26,11 @@ namespace QuillsModManagerV2.Util
             ApplyTheme(form);
         }
 
-        public static void Refresh(Form form, Control[] controlsToModify, Form backgroundForm = null)
+        public static void Refresh(
+            Form form,
+            Control[] controlsToModify,
+            Form backgroundForm = null
+        )
         {
             var settings = Settings.Default;
             int borderRadius = Math.Max(settings.BorderRadius, 1);
@@ -42,18 +46,32 @@ namespace QuillsModManagerV2.Util
             ApplyTheme(form);
         }
 
-        private static void RefreshControls(Control[] controls, int borderRadius, Color detailActiveColor, Color buttonColor)
+        private static void RefreshControls(
+            Control[] controls,
+            int borderRadius,
+            Color detailActiveColor,
+            Color buttonColor
+        )
         {
             foreach (Control control in controls)
             {
                 RefreshControl(control, detailActiveColor, buttonColor);
 
                 if (control.HasChildren)
-                    RefreshControls(control.Controls.Cast<Control>().ToArray(), borderRadius, detailActiveColor, buttonColor);
+                    RefreshControls(
+                        control.Controls.Cast<Control>().ToArray(),
+                        borderRadius,
+                        detailActiveColor,
+                        buttonColor
+                    );
             }
         }
 
-        private static void RefreshControl(Control control, Color detailActiveColor, Color buttonColor)
+        private static void RefreshControl(
+            Control control,
+            Color detailActiveColor,
+            Color buttonColor
+        )
         {
             switch (control)
             {
@@ -69,7 +87,11 @@ namespace QuillsModManagerV2.Util
             }
         }
 
-        private static void SetButtonProperties(Guna2Button button, Color detailActiveColor, Color buttonColor)
+        private static void SetButtonProperties(
+            Guna2Button button,
+            Color detailActiveColor,
+            Color buttonColor
+        )
         {
             button.CustomBorderColor = detailActiveColor;
             button.HoverState.BorderColor = detailActiveColor;
@@ -84,7 +106,11 @@ namespace QuillsModManagerV2.Util
             button.PressedColor = Settings.Default.DetailActive;
         }
 
-        private static void SetTextBoxProperties(Guna2TextBox textBox, Color detailActiveColor, Color buttonColor)
+        private static void SetTextBoxProperties(
+            Guna2TextBox textBox,
+            Color detailActiveColor,
+            Color buttonColor
+        )
         {
             textBox.HoverState.BorderColor = detailActiveColor;
             textBox.FocusedState.BorderColor = detailActiveColor;
@@ -92,17 +118,24 @@ namespace QuillsModManagerV2.Util
             textBox.FocusedState.FillColor = AdjustBrightness(buttonColor, CheckedBrightnessFactor);
         }
 
-        private static void SetComboBoxProperties(Guna2ComboBox comboBox, Color detailActiveColor, Color buttonColor)
+        private static void SetComboBoxProperties(
+            Guna2ComboBox comboBox,
+            Color detailActiveColor,
+            Color buttonColor
+        )
         {
             comboBox.HoverState.BorderColor = detailActiveColor;
             comboBox.FocusedState.BorderColor = detailActiveColor;
             comboBox.HoverState.FillColor = AdjustBrightness(buttonColor, HoverBrightnessFactor);
-            comboBox.FocusedState.FillColor = AdjustBrightness(buttonColor, CheckedBrightnessFactor);
+            comboBox.FocusedState.FillColor = AdjustBrightness(
+                buttonColor,
+                CheckedBrightnessFactor
+            );
         }
 
         public static void RefreshColors(Control[] controlsToModify)
         {
-            var settings = Properties.Settings.Default;
+            var settings = Settings.Default;
             Color detailActiveColor = settings.DetailActive;
             Color buttonColor = settings.ButtonColor;
 
@@ -136,7 +169,8 @@ namespace QuillsModManagerV2.Util
             }
         }
 
-        private static readonly Dictionary<Control, Image> OriginalIcons = new Dictionary<Control, Image>();
+        private static readonly Dictionary<Control, Image> OriginalIcons =
+            new Dictionary<Control, Image>();
 
         public static void RegisterIcons(Control root)
         {
@@ -150,8 +184,7 @@ namespace QuillsModManagerV2.Util
 
             foreach (Control c in GetControls(root))
             {
-                if (c is Guna2Button btn &&
-                    OriginalIcons.TryGetValue(btn, out Image original))
+                if (c is Guna2Button btn && OriginalIcons.TryGetValue(btn, out Image original))
                 {
                     btn.Image?.Dispose();
                     btn.Image = RecolorIcon(original, color);
@@ -165,19 +198,28 @@ namespace QuillsModManagerV2.Util
             {
                 if (c is Guna2Button btn && btn.Image != null && !OriginalIcons.ContainsKey(btn))
                 {
-                    try { OriginalIcons[btn] = (Image)btn.Image.Clone(); } catch { }
+                    try
+                    {
+                        OriginalIcons[btn] = (Image)btn.Image.Clone();
+                    }
+                    catch { }
                 }
 
                 if (c is PictureBox pb && pb.Image != null && !OriginalIcons.ContainsKey(pb))
                 {
-                    try { OriginalIcons[pb] = (Image)pb.Image.Clone(); } catch { }
+                    try
+                    {
+                        OriginalIcons[pb] = (Image)pb.Image.Clone();
+                    }
+                    catch { }
                 }
             }
         }
 
         private static IEnumerable<Control> GetControls(Control parent)
         {
-            if (parent == null) yield break;
+            if (parent == null)
+                yield break;
 
             yield return parent;
 
@@ -199,7 +241,11 @@ namespace QuillsModManagerV2.Util
                 {
                     Color p = src.GetPixel(x, y);
 
-                    dst.SetPixel(x, y, Color.FromArgb(p.A, targetColor.R, targetColor.G, targetColor.B));
+                    dst.SetPixel(
+                        x,
+                        y,
+                        Color.FromArgb(p.A, targetColor.R, targetColor.G, targetColor.B)
+                    );
                 }
             }
 
@@ -215,7 +261,11 @@ namespace QuillsModManagerV2.Util
                 {
                     if (OriginalIcons.TryGetValue(c, out Image img))
                     {
-                        try { img.Dispose(); } catch { }
+                        try
+                        {
+                            img.Dispose();
+                        }
+                        catch { }
                         OriginalIcons.Remove(c);
                     }
                 }
@@ -223,5 +273,5 @@ namespace QuillsModManagerV2.Util
             }
         }
     }
-    #endregion
+        #endregion
 }

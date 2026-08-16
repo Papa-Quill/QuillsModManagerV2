@@ -58,7 +58,10 @@
             this.PanelSearchBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxIcon)).BeginInit();
             this.SuspendLayout();
-                                             this.PanelHeader.AccessibleName = "PanelHeader";
+            // 
+            // PanelHeader
+            // 
+            this.PanelHeader.AccessibleName = "PanelHeader";
             this.PanelHeader.AutoSize = true;
             this.PanelHeader.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGPrimary;
             this.PanelHeader.BorderColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailColor;
@@ -79,7 +82,10 @@
             this.PanelHeader.Padding = new System.Windows.Forms.Padding(1);
             this.PanelHeader.Size = new System.Drawing.Size(646, 34);
             this.PanelHeader.TabIndex = 0;
-                                             this.BtnMinimize.AccessibleName = "BtnMinimize";
+            // 
+            // BtnMinimize
+            // 
+            this.BtnMinimize.AccessibleName = "BtnMinimize";
             this.BtnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnMinimize.Animated = true;
             this.BtnMinimize.BackColor = System.Drawing.Color.Transparent;
@@ -102,7 +108,10 @@
             this.BtnMinimize.TabIndex = 0;
             this.BtnMinimize.TabStop = false;
             this.BtnMinimize.UseTransparentBackground = true;
-                                             this.BtnClose.AccessibleName = "BtnClose";
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.AccessibleName = "BtnClose";
             this.BtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnClose.Animated = true;
             this.BtnClose.BackColor = System.Drawing.Color.Transparent;
@@ -125,7 +134,10 @@
             this.BtnClose.TabStop = false;
             this.BtnClose.UseTransparentBackground = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
-                                             this.QMMEProperties.AnimateWindow = true;
+            // 
+            // QMMEProperties
+            // 
+            this.QMMEProperties.AnimateWindow = true;
             this.QMMEProperties.AnimationInterval = 200;
             this.QMMEProperties.BorderRadius = 24;
             this.QMMEProperties.ContainerControl = this;
@@ -133,7 +145,10 @@
             this.QMMEProperties.DockIndicatorTransparencyValue = 0.6D;
             this.QMMEProperties.ShadowColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailActive;
             this.QMMEProperties.TransparentWhileDrag = true;
-                                             this.BtnMaximize.AccessibleName = "BtnMaximize";
+            // 
+            // BtnMaximize
+            // 
+            this.BtnMaximize.AccessibleName = "BtnMaximize";
             this.BtnMaximize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnMaximize.Animated = true;
             this.BtnMaximize.BackColor = System.Drawing.Color.Transparent;
@@ -157,7 +172,10 @@
             this.BtnMaximize.TabStop = false;
             this.BtnMaximize.UseTransparentBackground = true;
             this.BtnMaximize.Click += new System.EventHandler(this.BtnMaximize_Click);
-                                             this.PanelSideBar.AccessibleName = "PanelSideBar";
+            // 
+            // PanelSideBar
+            // 
+            this.PanelSideBar.AccessibleName = "PanelSideBar";
             this.PanelSideBar.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.PanelSideBar.AutoSize = true;
@@ -179,7 +197,10 @@
             this.PanelSideBar.Padding = new System.Windows.Forms.Padding(1);
             this.PanelSideBar.Size = new System.Drawing.Size(34, 242);
             this.PanelSideBar.TabIndex = 0;
-                                             this.PanelProfileInfo.AccessibleName = "PanelProfileInfo";
+            // 
+            // PanelProfileInfo
+            // 
+            this.PanelProfileInfo.AccessibleName = "PanelProfileInfo";
             this.PanelProfileInfo.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.PanelProfileInfo.AutoSize = true;
             this.PanelProfileInfo.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGPrimary;
@@ -202,7 +223,10 @@
             this.PanelProfileInfo.Padding = new System.Windows.Forms.Padding(1);
             this.PanelProfileInfo.Size = new System.Drawing.Size(446, 34);
             this.PanelProfileInfo.TabIndex = 0;
-                                             this.LabelCurrentProfile.AccessibleName = "LabelCurrentProfile";
+            // 
+            // LabelCurrentProfile
+            // 
+            this.LabelCurrentProfile.AccessibleName = "LabelCurrentProfile";
             this.LabelCurrentProfile.AutoSize = true;
             this.LabelCurrentProfile.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
             this.LabelCurrentProfile.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -214,11 +238,14 @@
             this.LabelCurrentProfile.Location = new System.Drawing.Point(7, 9);
             this.LabelCurrentProfile.Name = "LabelCurrentProfile";
             this.LabelCurrentProfile.Size = new System.Drawing.Size(56, 16);
-            this.LabelCurrentProfile.TabIndex = 1;
+            this.LabelCurrentProfile.TabIndex = 0;
             this.LabelCurrentProfile.Text = global::QuillsModManagerV2.Properties.Settings.Default.CurrentProfile;
             this.LabelCurrentProfile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LabelCurrentProfile.Click += new System.EventHandler(this.LabelCurrentProfile_Click);
-                                             this.LabelModBrowser.AccessibleName = "LabelModBrowser";
+            // 
+            // LabelModBrowser
+            // 
+            this.LabelModBrowser.AccessibleName = "LabelModBrowser";
             this.LabelModBrowser.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LabelModBrowser.AutoSize = true;
             this.LabelModBrowser.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
@@ -231,10 +258,13 @@
             this.LabelModBrowser.MaximumSize = new System.Drawing.Size(100, 16);
             this.LabelModBrowser.Name = "LabelModBrowser";
             this.LabelModBrowser.Size = new System.Drawing.Size(84, 16);
-            this.LabelModBrowser.TabIndex = 1;
+            this.LabelModBrowser.TabIndex = 0;
             this.LabelModBrowser.Text = "Mod Browser";
             this.LabelModBrowser.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-                                             this.LabelModCount.AccessibleName = "LabelModCount";
+            // 
+            // LabelModCount
+            // 
+            this.LabelModCount.AccessibleName = "LabelModCount";
             this.LabelModCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelModCount.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
             this.LabelModCount.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -245,10 +275,13 @@
             this.LabelModCount.Location = new System.Drawing.Point(355, 9);
             this.LabelModCount.Name = "LabelModCount";
             this.LabelModCount.Size = new System.Drawing.Size(86, 16);
-            this.LabelModCount.TabIndex = 1;
+            this.LabelModCount.TabIndex = 0;
             this.LabelModCount.Text = "mod-count";
             this.LabelModCount.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-                                             this.LabelMadeBy.AccessibleName = "LabelMadeBy";
+            // 
+            // LabelMadeBy
+            // 
+            this.LabelMadeBy.AccessibleName = "LabelMadeBy";
             this.LabelMadeBy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelMadeBy.AutoSize = true;
             this.LabelMadeBy.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGPrimary;
@@ -264,7 +297,10 @@
             this.LabelMadeBy.Text = "Made By Papa Quill";
             this.LabelMadeBy.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.LabelMadeBy.Click += new System.EventHandler(this.LabelMadeBy_Click);
-                                             this.LabelVersion.AccessibleName = "LabelVersion";
+            // 
+            // LabelVersion
+            // 
+            this.LabelVersion.AccessibleName = "LabelVersion";
             this.LabelVersion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.LabelVersion.AutoSize = true;
             this.LabelVersion.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGPrimary;
@@ -280,7 +316,10 @@
             this.LabelVersion.Text = global::QuillsModManagerV2.Properties.Settings.Default.Version;
             this.LabelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.LabelVersion.Click += new System.EventHandler(this.LabelVersion_Click);
-                                             this.PanelSearchBox.AccessibleName = "PanelSearchBox";
+            // 
+            // PanelSearchBox
+            // 
+            this.PanelSearchBox.AccessibleName = "PanelSearchBox";
             this.PanelSearchBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.PanelSearchBox.AutoSize = true;
             this.PanelSearchBox.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGPrimary;
@@ -302,7 +341,10 @@
             this.PanelSearchBox.Padding = new System.Windows.Forms.Padding(1);
             this.PanelSearchBox.Size = new System.Drawing.Size(91, 34);
             this.PanelSearchBox.TabIndex = 0;
-                                             this.LabelSearchGlass.AccessibleName = "LabelSearchGlass";
+            // 
+            // LabelSearchGlass
+            // 
+            this.LabelSearchGlass.AccessibleName = "LabelSearchGlass";
             this.LabelSearchGlass.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelSearchGlass.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
             this.LabelSearchGlass.Cursor = System.Windows.Forms.Cursors.Arrow;
@@ -313,10 +355,13 @@
             this.LabelSearchGlass.Location = new System.Drawing.Point(7, 6);
             this.LabelSearchGlass.Name = "LabelSearchGlass";
             this.LabelSearchGlass.Size = new System.Drawing.Size(17, 20);
-            this.LabelSearchGlass.TabIndex = 1;
+            this.LabelSearchGlass.TabIndex = 0;
             this.LabelSearchGlass.Text = "🔍︎";
             this.LabelSearchGlass.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-                                             this.TextBoxSearch.AccessibleName = "TextBoxSearch";
+            // 
+            // TextBoxSearch
+            // 
+            this.TextBoxSearch.AccessibleName = "TextBoxSearch";
             this.TextBoxSearch.Animated = true;
             this.TextBoxSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.TextBoxSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
@@ -338,7 +383,7 @@
             this.TextBoxSearch.ForeColor = global::QuillsModManagerV2.Properties.Settings.Default.TextColor;
             this.TextBoxSearch.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
             this.TextBoxSearch.Location = new System.Drawing.Point(24, 5);
-            this.TextBoxSearch.MaxLength = 7;
+            this.TextBoxSearch.MaxLength = 0;
             this.TextBoxSearch.Name = "TextBoxSearch";
             this.TextBoxSearch.PasswordChar = '\0';
             this.TextBoxSearch.PlaceholderForeColor = global::QuillsModManagerV2.Properties.Settings.Default.PlaceholderColor;
@@ -349,7 +394,10 @@
             this.TextBoxSearch.TextOffset = new System.Drawing.Point(-7, 0);
             this.TextBoxSearch.WordWrap = false;
             this.TextBoxSearch.TextChanged += new System.EventHandler(this.TextBoxSearch_TextChanged);
-                                             this.PictureBoxIcon.AccessibleName = "PictureBoxIcon";
+            // 
+            // PictureBoxIcon
+            // 
+            this.PictureBoxIcon.AccessibleName = "PictureBoxIcon";
             this.PictureBoxIcon.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
             this.PictureBoxIcon.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::QuillsModManagerV2.Properties.Settings.Default, "BGTertiary", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.PictureBoxIcon.Image = ((System.Drawing.Image)(resources.GetObject("PictureBoxIcon.Image")));
@@ -359,7 +407,10 @@
             this.PictureBoxIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureBoxIcon.TabIndex = 2;
             this.PictureBoxIcon.TabStop = false;
-                                             this.BtnOpenAppdata.AccessibleDescription = "Open Appdata Folder";
+            // 
+            // BtnOpenAppdata
+            // 
+            this.BtnOpenAppdata.AccessibleDescription = "Open Appdata Folder";
             this.BtnOpenAppdata.AccessibleName = "BtnOpenAppdata";
             this.BtnOpenAppdata.Animated = true;
             this.BtnOpenAppdata.BackColor = System.Drawing.Color.Transparent;
@@ -391,7 +442,10 @@
             this.BtnOpenAppdata.UseTransparentBackground = true;
             this.BtnOpenAppdata.Click += new System.EventHandler(this.BtnOpenAppdata_Click);
             this.BtnOpenAppdata.MouseEnter += new System.EventHandler(this.BtnToolTip_MouseEnter);
-                                             this.BtnDeployMods.AccessibleDescription = "Deploy Mods";
+            // 
+            // BtnDeployMods
+            // 
+            this.BtnDeployMods.AccessibleDescription = "Deploy Mods";
             this.BtnDeployMods.AccessibleName = "BtnDeployMods";
             this.BtnDeployMods.Animated = true;
             this.BtnDeployMods.BackColor = System.Drawing.Color.Transparent;
@@ -416,7 +470,10 @@
             this.BtnDeployMods.TabIndex = 0;
             this.BtnDeployMods.Click += new System.EventHandler(this.BtnDeployMods_Click);
             this.BtnDeployMods.MouseEnter += new System.EventHandler(this.BtnToolTip_MouseEnter);
-                                             this.BtnUndeployMods.AccessibleDescription = "Undeploy Mods";
+            // 
+            // BtnUndeployMods
+            // 
+            this.BtnUndeployMods.AccessibleDescription = "Undeploy Mods";
             this.BtnUndeployMods.AccessibleName = "BtnUndeployMods";
             this.BtnUndeployMods.Animated = true;
             this.BtnUndeployMods.BackColor = System.Drawing.Color.Transparent;
@@ -441,7 +498,10 @@
             this.BtnUndeployMods.TabIndex = 0;
             this.BtnUndeployMods.Click += new System.EventHandler(this.BtnUndeployMods_Click);
             this.BtnUndeployMods.MouseEnter += new System.EventHandler(this.BtnToolTip_MouseEnter);
-                                             this.BtnStartGame.AccessibleDescription = "Launch Game";
+            // 
+            // BtnStartGame
+            // 
+            this.BtnStartGame.AccessibleDescription = "Launch Game";
             this.BtnStartGame.AccessibleName = "BtnStartGame";
             this.BtnStartGame.Animated = true;
             this.BtnStartGame.BackColor = System.Drawing.Color.Transparent;
@@ -466,7 +526,10 @@
             this.BtnStartGame.TabIndex = 0;
             this.BtnStartGame.Click += new System.EventHandler(this.BtnStartGame_Click);
             this.BtnStartGame.MouseEnter += new System.EventHandler(this.BtnToolTip_MouseEnter);
-                                             this.BtnProfile.AccessibleDescription = "Profile Manager";
+            // 
+            // BtnProfile
+            // 
+            this.BtnProfile.AccessibleDescription = "Profile Manager";
             this.BtnProfile.AccessibleName = "BtnProfile";
             this.BtnProfile.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BtnProfile.Animated = true;
@@ -495,7 +558,10 @@
             this.BtnProfile.UseTransparentBackground = true;
             this.BtnProfile.Click += new System.EventHandler(this.LabelCurrentProfile_Click);
             this.BtnProfile.MouseEnter += new System.EventHandler(this.BtnToolTip_MouseEnter);
-                                             this.BtnSettings.AccessibleDescription = "Open Settings";
+            // 
+            // BtnSettings
+            // 
+            this.BtnSettings.AccessibleDescription = "Open Settings";
             this.BtnSettings.AccessibleName = "BtnSettings";
             this.BtnSettings.Animated = true;
             this.BtnSettings.BackColor = System.Drawing.Color.Transparent;
@@ -523,7 +589,10 @@
             this.BtnSettings.Tag = typeof(QuillsModManagerV2.UserControls.FormSettings);
             this.BtnSettings.Click += new System.EventHandler(this.SideBarButton_Click);
             this.BtnSettings.MouseEnter += new System.EventHandler(this.BtnToolTip_MouseEnter);
-                                             this.LabelTitle.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
+            // 
+            // LabelTitle
+            // 
+            this.LabelTitle.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
             this.LabelTitle.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::QuillsModManagerV2.Properties.Settings.Default, "TextColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.LabelTitle.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::QuillsModManagerV2.Properties.Settings.Default, "BGTertiary", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.LabelTitle.Font = new System.Drawing.Font("Cascadia Code", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -531,9 +600,12 @@
             this.LabelTitle.Location = new System.Drawing.Point(48, 16);
             this.LabelTitle.Name = "LabelTitle";
             this.LabelTitle.Size = new System.Drawing.Size(100, 23);
-            this.LabelTitle.TabIndex = 1;
+            this.LabelTitle.TabIndex = 0;
             this.LabelTitle.Text = "QMM / HOME";
-                                             this.ModBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            // 
+            // ModBrowser
+            // 
+            this.ModBrowser.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ModBrowser.Location = new System.Drawing.Point(57, 101);
@@ -541,7 +613,10 @@
             this.ModBrowser.Name = "ModBrowser";
             this.ModBrowser.Size = new System.Drawing.Size(599, 195);
             this.ModBrowser.TabIndex = 0;
-                                             this.AccessibleName = "QMMV2";
+            // 
+            // QMM
+            // 
+            this.AccessibleName = "QMMV2";
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGPrimary;

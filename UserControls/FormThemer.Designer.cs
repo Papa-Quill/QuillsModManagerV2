@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormThemer));
             this.ImgIcon = new System.Windows.Forms.PictureBox();
-            this.BtnResetSettings = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnResetTheme = new Guna.UI2.WinForms.Guna2Button();
             this.LabelTitle = new QuillsModManagerV2.Util.Controls.CClickThroughLabel();
             this.BtnClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.PanelHeader = new Guna.UI2.WinForms.Guna2Panel();
@@ -57,7 +57,10 @@
             this.PanelPresets.SuspendLayout();
             this.PanelPresetsContent.SuspendLayout();
             this.SuspendLayout();
-                                             this.ImgIcon.AccessibleName = "ImgIcon";
+            // 
+            // ImgIcon
+            // 
+            this.ImgIcon.AccessibleName = "ImgIcon";
             this.ImgIcon.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
             this.ImgIcon.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::QuillsModManagerV2.Properties.Settings.Default, "BGTertiary", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.ImgIcon.Image = global::QuillsModManagerV2.Properties.Resources.AnimatedQuillDiamond;
@@ -70,30 +73,37 @@
             this.ImgIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ImgIcon.TabIndex = 20;
             this.ImgIcon.TabStop = false;
-                                             this.BtnResetSettings.AccessibleDescription = "Reset all settings.";
-            this.BtnResetSettings.AccessibleName = "BtnResetSettings";
-            this.BtnResetSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnResetSettings.Animated = true;
-            this.BtnResetSettings.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
-            this.BtnResetSettings.CustomizableEdges.BottomLeft = false;
-            this.BtnResetSettings.CustomizableEdges.BottomRight = false;
-            this.BtnResetSettings.CustomizableEdges.TopLeft = false;
-            this.BtnResetSettings.CustomizableEdges.TopRight = false;
-            this.BtnResetSettings.DataBindings.Add(new System.Windows.Forms.Binding("FillColor", global::QuillsModManagerV2.Properties.Settings.Default, "ButtonColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.BtnResetSettings.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::QuillsModManagerV2.Properties.Settings.Default, "BGTertiary", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
-            this.BtnResetSettings.FillColor = global::QuillsModManagerV2.Properties.Settings.Default.ButtonColor;
-            this.BtnResetSettings.FocusedColor = System.Drawing.Color.Gray;
-            this.BtnResetSettings.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.BtnResetSettings.ForeColor = System.Drawing.Color.White;
-            this.BtnResetSettings.HoverState.FillColor = System.Drawing.Color.Gray;
-            this.BtnResetSettings.Image = ((System.Drawing.Image)(resources.GetObject("BtnResetSettings.Image")));
-            this.BtnResetSettings.Location = new System.Drawing.Point(511, 11);
-            this.BtnResetSettings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.BtnResetSettings.Name = "BtnResetSettings";
-            this.BtnResetSettings.Size = new System.Drawing.Size(32, 32);
-            this.BtnResetSettings.TabIndex = 16;
-            this.BtnResetSettings.Click += new System.EventHandler(this.BtnResetTheme_Click);
-                                             this.LabelTitle.AccessibleName = "LabelTitle";
+            // 
+            // BtnResetTheme
+            // 
+            this.BtnResetTheme.AccessibleDescription = "Reset your theme to default.";
+            this.BtnResetTheme.AccessibleName = "BtnResetTheme";
+            this.BtnResetTheme.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnResetTheme.Animated = true;
+            this.BtnResetTheme.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
+            this.BtnResetTheme.CustomizableEdges.BottomLeft = false;
+            this.BtnResetTheme.CustomizableEdges.BottomRight = false;
+            this.BtnResetTheme.CustomizableEdges.TopLeft = false;
+            this.BtnResetTheme.CustomizableEdges.TopRight = false;
+            this.BtnResetTheme.DataBindings.Add(new System.Windows.Forms.Binding("FillColor", global::QuillsModManagerV2.Properties.Settings.Default, "ButtonColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnResetTheme.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::QuillsModManagerV2.Properties.Settings.Default, "BGTertiary", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnResetTheme.FillColor = global::QuillsModManagerV2.Properties.Settings.Default.ButtonColor;
+            this.BtnResetTheme.FocusedColor = System.Drawing.Color.Gray;
+            this.BtnResetTheme.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BtnResetTheme.ForeColor = System.Drawing.Color.White;
+            this.BtnResetTheme.HoverState.FillColor = System.Drawing.Color.Gray;
+            this.BtnResetTheme.Image = ((System.Drawing.Image)(resources.GetObject("BtnResetTheme.Image")));
+            this.BtnResetTheme.Location = new System.Drawing.Point(511, 11);
+            this.BtnResetTheme.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.BtnResetTheme.Name = "BtnResetTheme";
+            this.BtnResetTheme.Size = new System.Drawing.Size(32, 32);
+            this.BtnResetTheme.TabIndex = 0;
+            this.BtnResetTheme.Click += new System.EventHandler(this.BtnResetTheme_Click);
+            this.BtnResetTheme.MouseHover += new System.EventHandler(this.BtnToolTip_MouseEnter);
+            // 
+            // LabelTitle
+            // 
+            this.LabelTitle.AccessibleName = "LabelTitle";
             this.LabelTitle.AutoSize = true;
             this.LabelTitle.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
             this.LabelTitle.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::QuillsModManagerV2.Properties.Settings.Default, "TextColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -105,10 +115,13 @@
             this.LabelTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.LabelTitle.Name = "LabelTitle";
             this.LabelTitle.Size = new System.Drawing.Size(109, 21);
-            this.LabelTitle.TabIndex = 17;
+            this.LabelTitle.TabIndex = 0;
             this.LabelTitle.Text = "QMM / THEME";
             this.LabelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                                             this.BtnClose.AccessibleName = "BtnClose";
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.AccessibleName = "BtnClose";
             this.BtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnClose.Animated = true;
             this.BtnClose.BackColor = System.Drawing.Color.Transparent;
@@ -128,9 +141,12 @@
             this.BtnClose.MaximumSize = new System.Drawing.Size(37, 32);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(37, 32);
-            this.BtnClose.TabIndex = 18;
+            this.BtnClose.TabIndex = 0;
             this.BtnClose.UseTransparentBackground = true;
-                                             this.PanelHeader.AccessibleName = "PanelHeader";
+            // 
+            // PanelHeader
+            // 
+            this.PanelHeader.AccessibleName = "PanelHeader";
             this.PanelHeader.AutoSize = true;
             this.PanelHeader.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGPrimary;
             this.PanelHeader.BorderColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailColor;
@@ -150,15 +166,21 @@
             this.PanelHeader.Name = "PanelHeader";
             this.PanelHeader.Padding = new System.Windows.Forms.Padding(1);
             this.PanelHeader.Size = new System.Drawing.Size(572, 34);
-            this.PanelHeader.TabIndex = 19;
-                                             this.FormThemerEProperties.ContainerControl = this;
+            this.PanelHeader.TabIndex = 0;
+            // 
+            // FormThemerEProperties
+            // 
+            this.FormThemerEProperties.ContainerControl = this;
             this.FormThemerEProperties.DockForm = false;
             this.FormThemerEProperties.DockIndicatorTransparencyValue = 0.6D;
             this.FormThemerEProperties.DragForm = false;
             this.FormThemerEProperties.ResizeForm = false;
             this.FormThemerEProperties.ShadowColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailActive;
             this.FormThemerEProperties.TransparentWhileDrag = true;
-                                             this.PanelBody.AccessibleName = "PanelBody";
+            // 
+            // PanelBody
+            // 
+            this.PanelBody.AccessibleName = "PanelBody";
             this.PanelBody.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -180,8 +202,11 @@
             this.PanelBody.Name = "PanelBody";
             this.PanelBody.Padding = new System.Windows.Forms.Padding(9);
             this.PanelBody.Size = new System.Drawing.Size(572, 257);
-            this.PanelBody.TabIndex = 24;
-                                             this.PanelColorsHeader.AccessibleName = "PanelColorsHeader";
+            this.PanelBody.TabIndex = 0;
+            // 
+            // PanelColorsHeader
+            // 
+            this.PanelColorsHeader.AccessibleName = "PanelColorsHeader";
             this.PanelColorsHeader.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelColorsHeader.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
             this.PanelColorsHeader.BorderColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailColor;
@@ -198,8 +223,11 @@
             this.PanelColorsHeader.Location = new System.Drawing.Point(11, 11);
             this.PanelColorsHeader.Name = "PanelColorsHeader";
             this.PanelColorsHeader.Size = new System.Drawing.Size(270, 20);
-            this.PanelColorsHeader.TabIndex = 26;
-                                             this.LabelColorsTitle.AccessibleName = "LabelColorsTitle";
+            this.PanelColorsHeader.TabIndex = 0;
+            // 
+            // LabelColorsTitle
+            // 
+            this.LabelColorsTitle.AccessibleName = "LabelColorsTitle";
             this.LabelColorsTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelColorsTitle.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
             this.LabelColorsTitle.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::QuillsModManagerV2.Properties.Settings.Default, "BGTertiary", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -209,10 +237,13 @@
             this.LabelColorsTitle.Location = new System.Drawing.Point(26, 2);
             this.LabelColorsTitle.Name = "LabelColorsTitle";
             this.LabelColorsTitle.Size = new System.Drawing.Size(218, 15);
-            this.LabelColorsTitle.TabIndex = 27;
+            this.LabelColorsTitle.TabIndex = 0;
             this.LabelColorsTitle.Text = "Theme Settings";
             this.LabelColorsTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-                                             this.PanelPresetsHeader.AccessibleName = "PanelPresetsHeader";
+            // 
+            // PanelPresetsHeader
+            // 
+            this.PanelPresetsHeader.AccessibleName = "PanelPresetsHeader";
             this.PanelPresetsHeader.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelPresetsHeader.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
             this.PanelPresetsHeader.BorderColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailColor;
@@ -230,8 +261,11 @@
             this.PanelPresetsHeader.Location = new System.Drawing.Point(291, 11);
             this.PanelPresetsHeader.Name = "PanelPresetsHeader";
             this.PanelPresetsHeader.Size = new System.Drawing.Size(270, 20);
-            this.PanelPresetsHeader.TabIndex = 26;
-                                             this.BtnAddPreset.AccessibleDescription = "Add current theme to presets.";
+            this.PanelPresetsHeader.TabIndex = 0;
+            // 
+            // BtnAddPreset
+            // 
+            this.BtnAddPreset.AccessibleDescription = "Add current theme to presets.";
             this.BtnAddPreset.AccessibleName = "BtnAddPreset";
             this.BtnAddPreset.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnAddPreset.Animated = true;
@@ -260,7 +294,10 @@
             this.BtnAddPreset.PressedColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailActive;
             this.BtnAddPreset.Size = new System.Drawing.Size(20, 20);
             this.BtnAddPreset.TabIndex = 16;
-                                             this.LabelPresetsTitle.AccessibleName = "LabelPresetsTitle";
+            // 
+            // LabelPresetsTitle
+            // 
+            this.LabelPresetsTitle.AccessibleName = "LabelPresetsTitle";
             this.LabelPresetsTitle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LabelPresetsTitle.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
             this.LabelPresetsTitle.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::QuillsModManagerV2.Properties.Settings.Default, "BGTertiary", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -270,10 +307,13 @@
             this.LabelPresetsTitle.Location = new System.Drawing.Point(26, 2);
             this.LabelPresetsTitle.Name = "LabelPresetsTitle";
             this.LabelPresetsTitle.Size = new System.Drawing.Size(218, 15);
-            this.LabelPresetsTitle.TabIndex = 27;
+            this.LabelPresetsTitle.TabIndex = 0;
             this.LabelPresetsTitle.Text = "Theme Presets";
             this.LabelPresetsTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-                                             this.PanelColors.AccessibleName = "PanelColors";
+            // 
+            // PanelColors
+            // 
+            this.PanelColors.AccessibleName = "PanelColors";
             this.PanelColors.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelColors.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
@@ -293,8 +333,11 @@
             this.PanelColors.Name = "PanelColors";
             this.PanelColors.Padding = new System.Windows.Forms.Padding(9);
             this.PanelColors.Size = new System.Drawing.Size(270, 216);
-            this.PanelColors.TabIndex = 23;
-                                             this.PanelColorsContent.AccessibleName = "PanelColorsContent";
+            this.PanelColors.TabIndex = 0;
+            // 
+            // PanelColorsContent
+            // 
+            this.PanelColorsContent.AccessibleName = "PanelColorsContent";
             this.PanelColorsContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -305,8 +348,11 @@
             this.PanelColorsContent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PanelColorsContent.Name = "PanelColorsContent";
             this.PanelColorsContent.Size = new System.Drawing.Size(248, 194);
-            this.PanelColorsContent.TabIndex = 15;
-                                             this.vScrollColors.AccessibleName = "vScrollColors";
+            this.PanelColorsContent.TabIndex = 0;
+            // 
+            // vScrollColors
+            // 
+            this.vScrollColors.AccessibleName = "vScrollColors";
             this.vScrollColors.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(36)))));
             this.vScrollColors.Dock = System.Windows.Forms.DockStyle.Right;
             this.vScrollColors.ForeColor = System.Drawing.Color.White;
@@ -318,9 +364,12 @@
             this.vScrollColors.Name = "vScrollColors";
             this.vScrollColors.Size = new System.Drawing.Size(12, 194);
             this.vScrollColors.SmallChange = 1;
-            this.vScrollColors.TabIndex = 14;
+            this.vScrollColors.TabIndex = 0;
             this.vScrollColors.Value = 0;
-                                             this.PanelPresets.AccessibleName = "PanelPresets";
+            // 
+            // PanelPresets
+            // 
+            this.PanelPresets.AccessibleName = "PanelPresets";
             this.PanelPresets.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelPresets.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
@@ -340,8 +389,11 @@
             this.PanelPresets.Name = "PanelPresets";
             this.PanelPresets.Padding = new System.Windows.Forms.Padding(9);
             this.PanelPresets.Size = new System.Drawing.Size(270, 216);
-            this.PanelPresets.TabIndex = 23;
-                                             this.PanelPresetsContent.AccessibleName = "PanelPresetsContent";
+            this.PanelPresets.TabIndex = 0;
+            // 
+            // PanelPresetsContent
+            // 
+            this.PanelPresetsContent.AccessibleName = "PanelPresetsContent";
             this.PanelPresetsContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -352,8 +404,11 @@
             this.PanelPresetsContent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PanelPresetsContent.Name = "PanelPresetsContent";
             this.PanelPresetsContent.Size = new System.Drawing.Size(248, 194);
-            this.PanelPresetsContent.TabIndex = 15;
-                                             this.vScrollPresets.AccessibleName = "vScrollPresets";
+            this.PanelPresetsContent.TabIndex = 0;
+            // 
+            // vScrollPresets
+            // 
+            this.vScrollPresets.AccessibleName = "vScrollPresets";
             this.vScrollPresets.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(36)))));
             this.vScrollPresets.Dock = System.Windows.Forms.DockStyle.Right;
             this.vScrollPresets.ForeColor = System.Drawing.Color.White;
@@ -365,16 +420,19 @@
             this.vScrollPresets.Name = "vScrollPresets";
             this.vScrollPresets.Size = new System.Drawing.Size(12, 194);
             this.vScrollPresets.SmallChange = 1;
-            this.vScrollPresets.TabIndex = 14;
+            this.vScrollPresets.TabIndex = 0;
             this.vScrollPresets.Value = 0;
-                                             this.AccessibleName = "FormThemer";
+            // 
+            // FormThemer
+            // 
+            this.AccessibleName = "FormThemer";
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGPrimary;
             this.ClientSize = new System.Drawing.Size(592, 321);
             this.Controls.Add(this.PanelBody);
             this.Controls.Add(this.ImgIcon);
-            this.Controls.Add(this.BtnResetSettings);
+            this.Controls.Add(this.BtnResetTheme);
             this.Controls.Add(this.LabelTitle);
             this.Controls.Add(this.BtnClose);
             this.Controls.Add(this.PanelHeader);
@@ -404,7 +462,7 @@
         #endregion
 
         private System.Windows.Forms.PictureBox ImgIcon;
-        private Guna.UI2.WinForms.Guna2Button BtnResetSettings;
+        private Guna.UI2.WinForms.Guna2Button BtnResetTheme;
         public Util.Controls.CClickThroughLabel LabelTitle;
         private Guna.UI2.WinForms.Guna2ControlBox BtnClose;
         private Guna.UI2.WinForms.Guna2Panel PanelHeader;

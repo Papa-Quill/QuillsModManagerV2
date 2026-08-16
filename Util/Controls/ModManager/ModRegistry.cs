@@ -38,9 +38,9 @@ namespace QuillsModManagerV2.Util.Controls
             {
                 try
                 {
-                    QuillsModManagerV2.Util.Debug.DebugUtil.Log(
-                        QuillsModManagerV2.Util.Debug.DebugLevel.INFO,
-                        QuillsModManagerV2.Util.Debug.DebugFilter.DEPLOYMENT,
+                    Debug.DebugUtil.Log(
+                        Debug.DebugLevel.INFO,
+                        Debug.DebugFilter.DEPLOYMENT,
                         $"ModRegistry.Save: saving {mods.Count} mods to {RegistryPath}"
                     );
                 }
@@ -69,9 +69,9 @@ namespace QuillsModManagerV2.Util.Controls
             {
                 try
                 {
-                    QuillsModManagerV2.Util.Debug.DebugUtil.Log(
-                        QuillsModManagerV2.Util.Debug.DebugLevel.INFO,
-                        QuillsModManagerV2.Util.Debug.DebugFilter.DEPLOYMENT,
+                    Debug.DebugUtil.Log(
+                        Debug.DebugLevel.INFO,
+                        Debug.DebugFilter.DEPLOYMENT,
                         $"ModRegistry.LoadOrder: loading from {RegistryPath}"
                     );
                 }
@@ -95,9 +95,9 @@ namespace QuillsModManagerV2.Util.Controls
                 }
                 try
                 {
-                    QuillsModManagerV2.Util.Debug.DebugUtil.Log(
-                        QuillsModManagerV2.Util.Debug.DebugLevel.INFO,
-                        QuillsModManagerV2.Util.Debug.DebugFilter.DEPLOYMENT,
+                    Debug.DebugUtil.Log(
+                        Debug.DebugLevel.INFO,
+                        Debug.DebugFilter.DEPLOYMENT,
                         $"ModRegistry.LoadOrder: loaded {result.Count} entries"
                     );
                 }

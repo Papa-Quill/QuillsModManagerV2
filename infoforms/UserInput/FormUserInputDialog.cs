@@ -28,7 +28,8 @@ namespace QuillsModManagerV2.InfoForms
                 Settings.Default.ButtonColor,
                 1.5f
             );
-            Text = "User Input Dialog " + Prompt;
+            Text = "User Input " + Prompt;
+            LabelTitle.Text = Prompt;
             this.autoClose = autoClose;
         }
 

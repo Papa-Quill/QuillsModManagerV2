@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
 using Newtonsoft.Json;
+using QuillsModManagerV2.InfoForms;
 using QuillsModManagerV2.Properties;
 using QuillsModManagerV2.Util;
 using QuillsModManagerV2.Util.Controls;
@@ -736,6 +737,46 @@ namespace QuillsModManagerV2
             }
             #endregion
         }
+
+        private DateTime lastEscapeKeyPress = DateTime.MinValue;
+
+        #region Hotkeys
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {
+                case Keys.Escape:
+                case Keys.Control | Keys.W:
+                    if ((DateTime.Now - lastEscapeKeyPress).TotalMilliseconds < 500)
+                    {
+                        BtnClose.PerformClick();
+                        return true;
+                    }
+                    lastEscapeKeyPress = DateTime.Now;
+                    return true;
+
+                case Keys.Control | Keys.K:
+                    Settings.Default.HotKeyForm = "Main";
+                    FormUtil.ShowForm<FormHotKeys>();
+                    return true;
+
+                case Keys.Control | Keys.E:
+                    BtnOpenAppdata.PerformClick();
+                    return true;
+
+                case Keys.Control | Keys.S:
+                    BtnSettings.PerformClick();
+                    return true;
+
+                case Keys.Control | Keys.R:
+                    BtnProfile.PerformClick();
+                    return true;
+
+                default:
+                    return base.ProcessCmdKey(ref msg, keyData);
+            }
+        }
+        #endregion
 
         private void SideBarButton_MouseEnter(object sender, EventArgs e)
         {
@@ -1518,7 +1559,7 @@ namespace QuillsModManagerV2
                         bool hasWindow = false;
                         try
                         {
-                            hasWindow = p.MainWindowHandle != System.IntPtr.Zero;
+                            hasWindow = p.MainWindowHandle != IntPtr.Zero;
                         }
                         catch { }
                         var runningLong = false;

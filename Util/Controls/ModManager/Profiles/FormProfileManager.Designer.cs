@@ -30,6 +30,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProfileManager));
             this.BtnCreateProfile = new Guna.UI2.WinForms.Guna2Button();
             this.BtnDeleteProfile = new Guna.UI2.WinForms.Guna2Button();
             this.BtnFinishSelection = new Guna.UI2.WinForms.Guna2Button();
@@ -45,11 +46,15 @@
             this.PanelContent = new System.Windows.Forms.Panel();
             this.ProfileManagerEProperties = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.BtnSteamProfile = new Guna.UI2.WinForms.Guna2Button();
+            this.BtnOpenTutorial = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.ImgIcon)).BeginInit();
             this.PanelBody.SuspendLayout();
             this.PanelContent.SuspendLayout();
             this.SuspendLayout();
-                                             this.BtnCreateProfile.AccessibleDescription = "Create a profile with the name written in the user input.";
+            // 
+            // BtnCreateProfile
+            // 
+            this.BtnCreateProfile.AccessibleDescription = "Create a profile with the name written in the user input.";
             this.BtnCreateProfile.AccessibleName = "BtnCreateProfile";
             this.BtnCreateProfile.Animated = true;
             this.BtnCreateProfile.BackColor = System.Drawing.Color.Transparent;
@@ -72,11 +77,14 @@
             this.BtnCreateProfile.Name = "BtnCreateProfile";
             this.BtnCreateProfile.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(36)))));
             this.BtnCreateProfile.Size = new System.Drawing.Size(120, 30);
-            this.BtnCreateProfile.TabIndex = 13;
+            this.BtnCreateProfile.TabIndex = 0;
             this.BtnCreateProfile.Text = "Create Profile";
             this.BtnCreateProfile.UseTransparentBackground = true;
             this.BtnCreateProfile.Click += new System.EventHandler(this.BtnCreate_Click);
-                                             this.BtnDeleteProfile.AccessibleDescription = "Delete the selected profile.";
+            // 
+            // BtnDeleteProfile
+            // 
+            this.BtnDeleteProfile.AccessibleDescription = "Delete the selected profile.";
             this.BtnDeleteProfile.AccessibleName = "BtnDeleteProfile";
             this.BtnDeleteProfile.Animated = true;
             this.BtnDeleteProfile.BackColor = System.Drawing.Color.Transparent;
@@ -99,11 +107,14 @@
             this.BtnDeleteProfile.Name = "BtnDeleteProfile";
             this.BtnDeleteProfile.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(36)))));
             this.BtnDeleteProfile.Size = new System.Drawing.Size(120, 30);
-            this.BtnDeleteProfile.TabIndex = 13;
+            this.BtnDeleteProfile.TabIndex = 0;
             this.BtnDeleteProfile.Text = "Delete Profile";
             this.BtnDeleteProfile.UseTransparentBackground = true;
             this.BtnDeleteProfile.Click += new System.EventHandler(this.BtnDelete_Click);
-                                             this.BtnFinishSelection.AccessibleDescription = "Load the selected profile.";
+            // 
+            // BtnFinishSelection
+            // 
+            this.BtnFinishSelection.AccessibleDescription = "Load the selected profile.";
             this.BtnFinishSelection.AccessibleName = "BtnFinishSelection";
             this.BtnFinishSelection.Animated = true;
             this.BtnFinishSelection.BackColor = System.Drawing.Color.Transparent;
@@ -126,11 +137,14 @@
             this.BtnFinishSelection.Name = "BtnFinishSelection";
             this.BtnFinishSelection.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(36)))));
             this.BtnFinishSelection.Size = new System.Drawing.Size(120, 30);
-            this.BtnFinishSelection.TabIndex = 13;
+            this.BtnFinishSelection.TabIndex = 0;
             this.BtnFinishSelection.Text = "Load Profile";
             this.BtnFinishSelection.UseTransparentBackground = true;
             this.BtnFinishSelection.Click += new System.EventHandler(this.BtnFinishSelection_Click);
-                                             this.BtnRenameProfile.AccessibleDescription = "Rename the selected profile with the user input.";
+            // 
+            // BtnRenameProfile
+            // 
+            this.BtnRenameProfile.AccessibleDescription = "Rename the selected profile with the user input.";
             this.BtnRenameProfile.AccessibleName = "BtnRenameProfile";
             this.BtnRenameProfile.Animated = true;
             this.BtnRenameProfile.BackColor = System.Drawing.Color.Transparent;
@@ -153,11 +167,14 @@
             this.BtnRenameProfile.Name = "BtnRenameProfile";
             this.BtnRenameProfile.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(36)))));
             this.BtnRenameProfile.Size = new System.Drawing.Size(120, 30);
-            this.BtnRenameProfile.TabIndex = 13;
+            this.BtnRenameProfile.TabIndex = 0;
             this.BtnRenameProfile.Text = "Rename Profile";
             this.BtnRenameProfile.UseTransparentBackground = true;
             this.BtnRenameProfile.Click += new System.EventHandler(this.BtnRename_Click);
-                                             this.BtnDuplicateProfile.AccessibleDescription = "Duplicate the selected profile.";
+            // 
+            // BtnDuplicateProfile
+            // 
+            this.BtnDuplicateProfile.AccessibleDescription = "Duplicate the selected profile.";
             this.BtnDuplicateProfile.AccessibleName = "BtnDuplicateProfile";
             this.BtnDuplicateProfile.Animated = true;
             this.BtnDuplicateProfile.BackColor = System.Drawing.Color.Transparent;
@@ -180,11 +197,14 @@
             this.BtnDuplicateProfile.Name = "BtnDuplicateProfile";
             this.BtnDuplicateProfile.PressedColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(36)))));
             this.BtnDuplicateProfile.Size = new System.Drawing.Size(120, 30);
-            this.BtnDuplicateProfile.TabIndex = 13;
+            this.BtnDuplicateProfile.TabIndex = 0;
             this.BtnDuplicateProfile.Text = "Duplicate Profile";
             this.BtnDuplicateProfile.UseTransparentBackground = true;
             this.BtnDuplicateProfile.Click += new System.EventHandler(this.BtnDuplicate_Click);
-                                             this.vScroll.AccessibleName = "vScroll";
+            // 
+            // vScroll
+            // 
+            this.vScroll.AccessibleName = "vScroll";
             this.vScroll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(36)))));
             this.vScroll.Dock = System.Windows.Forms.DockStyle.Right;
             this.vScroll.ForeColor = System.Drawing.Color.White;
@@ -195,9 +215,12 @@
             this.vScroll.Name = "vScroll";
             this.vScroll.Size = new System.Drawing.Size(10, 195);
             this.vScroll.SmallChange = 1;
-            this.vScroll.TabIndex = 14;
+            this.vScroll.TabIndex = 0;
             this.vScroll.Value = 0;
-                                             this.PanelHeader.AccessibleName = "PanelHeader";
+            // 
+            // PanelHeader
+            // 
+            this.PanelHeader.AccessibleName = "PanelHeader";
             this.PanelHeader.AutoSize = true;
             this.PanelHeader.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGPrimary;
             this.PanelHeader.BorderColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailColor;
@@ -217,8 +240,11 @@
             this.PanelHeader.Name = "PanelHeader";
             this.PanelHeader.Padding = new System.Windows.Forms.Padding(1);
             this.PanelHeader.Size = new System.Drawing.Size(400, 34);
-            this.PanelHeader.TabIndex = 15;
-                                             this.ImgIcon.AccessibleName = "ImgIcon";
+            this.PanelHeader.TabIndex = 0;
+            // 
+            // ImgIcon
+            // 
+            this.ImgIcon.AccessibleName = "ImgIcon";
             this.ImgIcon.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
             this.ImgIcon.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::QuillsModManagerV2.Properties.Settings.Default, "BGTertiary", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.ImgIcon.Image = global::QuillsModManagerV2.Properties.Resources.AnimatedQuillDiamond;
@@ -228,7 +254,10 @@
             this.ImgIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ImgIcon.TabIndex = 18;
             this.ImgIcon.TabStop = false;
-                                             this.LabelTitle.AccessibleName = "LabelTitle";
+            // 
+            // LabelTitle
+            // 
+            this.LabelTitle.AccessibleName = "LabelTitle";
             this.LabelTitle.AutoSize = true;
             this.LabelTitle.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
             this.LabelTitle.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::QuillsModManagerV2.Properties.Settings.Default, "TextColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -242,7 +271,10 @@
             this.LabelTitle.TabIndex = 0;
             this.LabelTitle.Text = "QMM / PROFILES";
             this.LabelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                                             this.BtnClose.AccessibleName = "BtnClose";
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.AccessibleName = "BtnClose";
             this.BtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnClose.Animated = true;
             this.BtnClose.BackColor = System.Drawing.Color.Transparent;
@@ -264,7 +296,10 @@
             this.BtnClose.TabIndex = 0;
             this.BtnClose.UseTransparentBackground = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
-                                             this.TextBoxUserInput.AccessibleDescription = "The user input textbox for naming profiles.";
+            // 
+            // TextBoxUserInput
+            // 
+            this.TextBoxUserInput.AccessibleDescription = "The user input textbox for naming profiles.";
             this.TextBoxUserInput.AccessibleName = "TextBoxUserInput";
             this.TextBoxUserInput.Animated = true;
             this.TextBoxUserInput.BackColor = System.Drawing.Color.Transparent;
@@ -293,9 +328,12 @@
             this.TextBoxUserInput.PlaceholderText = "User Input";
             this.TextBoxUserInput.SelectedText = "";
             this.TextBoxUserInput.Size = new System.Drawing.Size(120, 30);
-            this.TextBoxUserInput.TabIndex = 19;
+            this.TextBoxUserInput.TabIndex = 0;
             this.TextBoxUserInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-                                             this.PanelBody.AccessibleName = "PanelBody";
+            // 
+            // PanelBody
+            // 
+            this.PanelBody.AccessibleName = "PanelBody";
             this.PanelBody.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGPrimary;
             this.PanelBody.BorderColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailColor;
             this.PanelBody.BorderRadius = global::QuillsModManagerV2.Properties.Settings.Default.BorderRadius;
@@ -310,23 +348,32 @@
             this.PanelBody.Name = "PanelBody";
             this.PanelBody.Padding = new System.Windows.Forms.Padding(8);
             this.PanelBody.Size = new System.Drawing.Size(400, 211);
-            this.PanelBody.TabIndex = 20;
-                                             this.PanelContent.AccessibleName = "PanelContent";
+            this.PanelBody.TabIndex = 0;
+            // 
+            // PanelContent
+            // 
+            this.PanelContent.AccessibleName = "PanelContent";
             this.PanelContent.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGSecondary;
             this.PanelContent.Controls.Add(this.vScroll);
             this.PanelContent.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::QuillsModManagerV2.Properties.Settings.Default, "BGSecondary", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.PanelContent.Location = new System.Drawing.Point(8, 8);
             this.PanelContent.Name = "PanelContent";
             this.PanelContent.Size = new System.Drawing.Size(384, 195);
-            this.PanelContent.TabIndex = 15;
-                                             this.ProfileManagerEProperties.ContainerControl = this;
+            this.PanelContent.TabIndex = 0;
+            // 
+            // ProfileManagerEProperties
+            // 
+            this.ProfileManagerEProperties.ContainerControl = this;
             this.ProfileManagerEProperties.DockForm = false;
             this.ProfileManagerEProperties.DockIndicatorTransparencyValue = 0.6D;
             this.ProfileManagerEProperties.DragForm = false;
             this.ProfileManagerEProperties.ResizeForm = false;
             this.ProfileManagerEProperties.ShadowColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailActive;
             this.ProfileManagerEProperties.TransparentWhileDrag = true;
-                                             this.BtnSteamProfile.AccessibleDescription = "Select your Steam profile.";
+            // 
+            // BtnSteamProfile
+            // 
+            this.BtnSteamProfile.AccessibleDescription = "Select your Steam profile.";
             this.BtnSteamProfile.AccessibleName = "BtnSteamProfile";
             this.BtnSteamProfile.Animated = true;
             this.BtnSteamProfile.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(31)))));
@@ -346,9 +393,38 @@
             this.BtnSteamProfile.Name = "BtnSteamProfile";
             this.BtnSteamProfile.PressedColor = System.Drawing.Color.Transparent;
             this.BtnSteamProfile.Size = new System.Drawing.Size(32, 32);
-            this.BtnSteamProfile.TabIndex = 21;
-                                             this.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGPrimary;
+            this.BtnSteamProfile.TabIndex = 0;
+            this.BtnSteamProfile.MouseHover += new System.EventHandler(this.BtnToolTip_MouseEnter);
+            // 
+            // BtnOpenTutorial
+            // 
+            this.BtnOpenTutorial.AccessibleDescription = "Open tutorial video in browser.";
+            this.BtnOpenTutorial.AccessibleName = "BtnOpenTutorial";
+            this.BtnOpenTutorial.Animated = true;
+            this.BtnOpenTutorial.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(31)))));
+            this.BtnOpenTutorial.CustomizableEdges.BottomLeft = false;
+            this.BtnOpenTutorial.CustomizableEdges.BottomRight = false;
+            this.BtnOpenTutorial.CustomizableEdges.TopLeft = false;
+            this.BtnOpenTutorial.CustomizableEdges.TopRight = false;
+            this.BtnOpenTutorial.DataBindings.Add(new System.Windows.Forms.Binding("FillColor", global::QuillsModManagerV2.Properties.Settings.Default, "ButtonColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnOpenTutorial.FillColor = global::QuillsModManagerV2.Properties.Settings.Default.ButtonColor;
+            this.BtnOpenTutorial.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(20)))));
+            this.BtnOpenTutorial.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BtnOpenTutorial.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(16)))), ((int)(((byte)(20)))));
+            this.BtnOpenTutorial.HoverState.FillColor = System.Drawing.Color.Gray;
+            this.BtnOpenTutorial.Image = ((System.Drawing.Image)(resources.GetObject("BtnOpenTutorial.Image")));
+            this.BtnOpenTutorial.Location = new System.Drawing.Point(307, 11);
+            this.BtnOpenTutorial.Name = "BtnOpenTutorial";
+            this.BtnOpenTutorial.PressedColor = System.Drawing.Color.Transparent;
+            this.BtnOpenTutorial.Size = new System.Drawing.Size(32, 32);
+            this.BtnOpenTutorial.TabIndex = 0;
+            this.BtnOpenTutorial.MouseHover += new System.EventHandler(this.BtnToolTip_MouseEnter);
+            // 
+            // FormProfileManager
+            // 
+            this.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGPrimary;
             this.ClientSize = new System.Drawing.Size(420, 355);
+            this.Controls.Add(this.BtnOpenTutorial);
             this.Controls.Add(this.BtnSteamProfile);
             this.Controls.Add(this.PanelBody);
             this.Controls.Add(this.TextBoxUserInput);
@@ -393,5 +469,6 @@
         private Guna.UI2.WinForms.Guna2BorderlessForm ProfileManagerEProperties;
         private System.Windows.Forms.Panel PanelContent;
         private Guna.UI2.WinForms.Guna2Button BtnSteamProfile;
+        private Guna.UI2.WinForms.Guna2Button BtnOpenTutorial;
     }
 }

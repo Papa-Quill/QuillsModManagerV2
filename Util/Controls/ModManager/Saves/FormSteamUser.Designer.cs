@@ -32,17 +32,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormSteamUser));
             this.PanelBody = new Guna.UI2.WinForms.Guna2Panel();
             this.PanelContent = new System.Windows.Forms.Panel();
+            this.vScroll = new QuillsModManagerV2.Util.Controls.CustomVScrollBar();
             this.PanelHeader = new Guna.UI2.WinForms.Guna2Panel();
             this.ImgIcon = new System.Windows.Forms.PictureBox();
             this.BtnClose = new Guna.UI2.WinForms.Guna2ControlBox();
             this.FormSteamUserEProperties = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.LabelTitle = new QuillsModManagerV2.Util.Controls.CClickThroughLabel();
-            this.vScroll = new QuillsModManagerV2.Util.Controls.CustomVScrollBar();
             this.PanelBody.SuspendLayout();
             this.PanelContent.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImgIcon)).BeginInit();
             this.SuspendLayout();
-                                             this.PanelBody.AccessibleName = "PanelBody";
+            // 
+            // PanelBody
+            // 
+            this.PanelBody.AccessibleName = "PanelBody";
             this.PanelBody.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -60,8 +63,11 @@
             this.PanelBody.Name = "PanelBody";
             this.PanelBody.Padding = new System.Windows.Forms.Padding(8);
             this.PanelBody.Size = new System.Drawing.Size(400, 291);
-            this.PanelBody.TabIndex = 22;
-                                             this.PanelContent.AccessibleName = "PanelContent";
+            this.PanelBody.TabIndex = 0;
+            // 
+            // PanelContent
+            // 
+            this.PanelContent.AccessibleName = "PanelContent";
             this.PanelContent.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -71,8 +77,27 @@
             this.PanelContent.Location = new System.Drawing.Point(8, 8);
             this.PanelContent.Name = "PanelContent";
             this.PanelContent.Size = new System.Drawing.Size(384, 275);
-            this.PanelContent.TabIndex = 15;
-                                             this.PanelHeader.AccessibleName = "PanelHeader";
+            this.PanelContent.TabIndex = 0;
+            // 
+            // vScroll
+            // 
+            this.vScroll.AccessibleName = "vScroll";
+            this.vScroll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(36)))));
+            this.vScroll.Dock = System.Windows.Forms.DockStyle.Right;
+            this.vScroll.ForeColor = System.Drawing.Color.White;
+            this.vScroll.LargeChange = 10;
+            this.vScroll.Location = new System.Drawing.Point(374, 0);
+            this.vScroll.Maximum = 100;
+            this.vScroll.Minimum = 0;
+            this.vScroll.Name = "vScroll";
+            this.vScroll.Size = new System.Drawing.Size(10, 275);
+            this.vScroll.SmallChange = 1;
+            this.vScroll.TabIndex = 0;
+            this.vScroll.Value = 0;
+            // 
+            // PanelHeader
+            // 
+            this.PanelHeader.AccessibleName = "PanelHeader";
             this.PanelHeader.AutoSize = true;
             this.PanelHeader.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGPrimary;
             this.PanelHeader.BorderColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailColor;
@@ -92,8 +117,11 @@
             this.PanelHeader.Name = "PanelHeader";
             this.PanelHeader.Padding = new System.Windows.Forms.Padding(1);
             this.PanelHeader.Size = new System.Drawing.Size(400, 34);
-            this.PanelHeader.TabIndex = 21;
-                                             this.ImgIcon.AccessibleName = "ImgIcon";
+            this.PanelHeader.TabIndex = 0;
+            // 
+            // ImgIcon
+            // 
+            this.ImgIcon.AccessibleName = "ImgIcon";
             this.ImgIcon.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
             this.ImgIcon.DataBindings.Add(new System.Windows.Forms.Binding("BackColor", global::QuillsModManagerV2.Properties.Settings.Default, "BGTertiary", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             this.ImgIcon.Image = global::QuillsModManagerV2.Properties.Resources.AnimatedQuillDiamond;
@@ -103,7 +131,10 @@
             this.ImgIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ImgIcon.TabIndex = 25;
             this.ImgIcon.TabStop = false;
-                                             this.BtnClose.AccessibleName = "BtnClose";
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.AccessibleName = "BtnClose";
             this.BtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnClose.Animated = true;
             this.BtnClose.BackColor = System.Drawing.Color.Transparent;
@@ -122,17 +153,23 @@
             this.BtnClose.MaximumSize = new System.Drawing.Size(37, 32);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(37, 32);
-            this.BtnClose.TabIndex = 24;
+            this.BtnClose.TabIndex = 0;
             this.BtnClose.UseTransparentBackground = true;
             this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
-                                             this.FormSteamUserEProperties.ContainerControl = this;
+            // 
+            // FormSteamUserEProperties
+            // 
+            this.FormSteamUserEProperties.ContainerControl = this;
             this.FormSteamUserEProperties.DockForm = false;
             this.FormSteamUserEProperties.DockIndicatorTransparencyValue = 0.6D;
             this.FormSteamUserEProperties.DragForm = false;
             this.FormSteamUserEProperties.ResizeForm = false;
             this.FormSteamUserEProperties.ShadowColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailActive;
             this.FormSteamUserEProperties.TransparentWhileDrag = true;
-                                             this.LabelTitle.AccessibleName = "LabelTitle";
+            // 
+            // LabelTitle
+            // 
+            this.LabelTitle.AccessibleName = "LabelTitle";
             this.LabelTitle.AutoSize = true;
             this.LabelTitle.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
             this.LabelTitle.DataBindings.Add(new System.Windows.Forms.Binding("ForeColor", global::QuillsModManagerV2.Properties.Settings.Default, "TextColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -143,23 +180,13 @@
             this.LabelTitle.Location = new System.Drawing.Point(48, 16);
             this.LabelTitle.Name = "LabelTitle";
             this.LabelTitle.Size = new System.Drawing.Size(109, 21);
-            this.LabelTitle.TabIndex = 23;
+            this.LabelTitle.TabIndex = 0;
             this.LabelTitle.Text = "QMM / STEAM";
             this.LabelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-                                             this.vScroll.AccessibleName = "vScroll";
-            this.vScroll.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(36)))));
-            this.vScroll.Dock = System.Windows.Forms.DockStyle.Right;
-            this.vScroll.ForeColor = System.Drawing.Color.White;
-            this.vScroll.LargeChange = 10;
-            this.vScroll.Location = new System.Drawing.Point(374, 0);
-            this.vScroll.Maximum = 100;
-            this.vScroll.Minimum = 0;
-            this.vScroll.Name = "vScroll";
-            this.vScroll.Size = new System.Drawing.Size(10, 275);
-            this.vScroll.SmallChange = 1;
-            this.vScroll.TabIndex = 14;
-            this.vScroll.Value = 0;
-                                             this.AccessibleDescription = "This form is for choosing which Steam account you want to use.";
+            // 
+            // FormSteamUser
+            // 
+            this.AccessibleDescription = "This form is for choosing which Steam account you want to use.";
             this.AccessibleName = "FormSteamUser";
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;

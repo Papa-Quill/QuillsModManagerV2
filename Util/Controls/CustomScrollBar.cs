@@ -139,7 +139,7 @@ namespace QuillsModManagerV2.Util.Controls
             if (totalItems <= 0)
                 totalItems = 1;
             double visibleRatio = Math.Max(0.0, Math.Min(1.0, (double)_largeChange / totalItems));
-            int thumbHeight = (int)System.Math.Round(visibleRatio * trackHeight);
+            int thumbHeight = (int)Math.Round(visibleRatio * trackHeight);
             thumbHeight = Math.Max(8, thumbHeight);
             thumbHeight = Math.Min(thumbHeight, trackHeight);
 
@@ -148,7 +148,7 @@ namespace QuillsModManagerV2.Util.Controls
                 positionRange = 1;
 
             int thumbY = (int)
-                System.Math.Round(
+                Math.Round(
                     ((_value - _minimum) / (double)positionRange) * (trackHeight - thumbHeight)
                 );
             if (thumbY < 0)
@@ -244,7 +244,7 @@ namespace QuillsModManagerV2.Util.Controls
                     0.0,
                     Math.Min(1.0, (double)_largeChange / totalItems)
                 );
-                int thumbHeight = (int)System.Math.Round(visibleRatio * trackHeight);
+                int thumbHeight = (int)Math.Round(visibleRatio * trackHeight);
                 thumbHeight = Math.Max(8, thumbHeight);
                 thumbHeight = Math.Min(thumbHeight, trackHeight);
 
@@ -428,7 +428,7 @@ namespace QuillsModManagerV2.Util.Controls
             if (totalItems <= 0)
                 totalItems = 1;
             double visibleRatio = Math.Max(0.0, Math.Min(1.0, (double)_largeChange / totalItems));
-            int thumbWidth = (int)System.Math.Round(visibleRatio * trackWidth);
+            int thumbWidth = (int)Math.Round(visibleRatio * trackWidth);
             thumbWidth = Math.Max(8, thumbWidth);
             thumbWidth = Math.Min(thumbWidth, trackWidth);
 
@@ -437,7 +437,7 @@ namespace QuillsModManagerV2.Util.Controls
                 positionRange = 1;
 
             int thumbX = (int)
-                System.Math.Round(
+                Math.Round(
                     ((_value - _minimum) / (double)positionRange) * (trackWidth - thumbWidth)
                 );
             if (thumbX < 0)
@@ -540,7 +540,7 @@ namespace QuillsModManagerV2.Util.Controls
                     0.0,
                     Math.Min(1.0, (double)_largeChange / totalItems)
                 );
-                int thumbWidth = (int)System.Math.Round(visibleRatio * trackWidth);
+                int thumbWidth = (int)Math.Round(visibleRatio * trackWidth);
                 thumbWidth = Math.Max(8, thumbWidth);
                 thumbWidth = Math.Min(thumbWidth, trackWidth);
 

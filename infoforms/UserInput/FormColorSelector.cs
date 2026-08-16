@@ -56,7 +56,6 @@ namespace QuillsModManagerV2.infoforms.UserInput
             switch (keyData)
             {
                 case Keys.Escape:
-                case Keys.Enter:
                 case Keys.Control | Keys.W:
                     BtnClose.PerformClick();
                     return true;

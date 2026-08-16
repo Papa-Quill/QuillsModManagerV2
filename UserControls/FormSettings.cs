@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Guna.UI2.WinForms;
+using QuillsModManagerV2.InfoForms;
 using QuillsModManagerV2.Properties;
 using QuillsModManagerV2.Util;
 using QuillsModManagerV2.Util.Controls.AnimatedList;
@@ -78,15 +79,46 @@ namespace QuillsModManagerV2.UserControls
             SettingsChangedEvent(this, null);
             _settingDisplayNames = new System.Collections.Generic.Dictionary<string, string>()
             {
-                { "FormShadows", "Form Shadows" },
+                { "FormShadows", "Form Glow" },
                 { "ToolTips", "Tool Tips" },
                 { "DebugMode", "Debug Mode" },
-                { "EfficiencyMode", "Efficiency Mode" }
+                { "EfficiencyMode", "Effeciency Mode" }
             };
 
             PopulateBooleanToggles();
 
             Settings.Default.SettingsLoaded += SettingsChangedEvent;
+        }
+
+        #region Hotkeys
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            switch (keyData)
+            {
+                case Keys.Escape:
+                case Keys.Control | Keys.W:
+                    BtnClose.PerformClick();
+                    return true;
+
+                case Keys.Control | Keys.T:
+                    BtnTheme.PerformClick();
+                    return true;
+
+                case Keys.Control | Keys.K:
+                    Settings.Default.HotKeyForm = "Settings";
+                    FormUtil.ShowForm<FormHotKeys>();
+                    return true;
+
+                default:
+                    return base.ProcessCmdKey(ref msg, keyData);
+            }
+        }
+        #endregion
+
+        private void BtnToolTip_MouseEnter(object sender, EventArgs e)
+        {
+            if (sender is Guna2Button button && button.AccessibleDescription is string tooltipText)
+                ToolTipUtil.SetToolTip(button, tooltipText);
         }
 
         private void PopulateBooleanToggles()
@@ -423,9 +455,9 @@ namespace QuillsModManagerV2.UserControls
         {
             var controlsToModify = new Control[]
             {
-                TextBoxGamePath,
-                TextBoxUserDataPath,
-                TextBoxModPath,
+                BtnGamePathLabel,
+                BtnUserDataPathLabel,
+                BtnModLibraryPathLabel,
                 BtnChooseGamePath,
                 BtnChooseUserDataPath,
                 BtnChooseModPath,
@@ -447,16 +479,7 @@ namespace QuillsModManagerV2.UserControls
                 (WindowState == FormWindowState.Maximized) ? 0 : Settings.Default.BorderRadius * 3;
 
             #region OverlappedControls event
-            var OverlappedControls = new Control[]
-            {
-                TextBoxGamePath,
-                TextBoxUserDataPath,
-                TextBoxModPath,
-                BtnChooseGamePath,
-                BtnChooseUserDataPath,
-                BtnChooseModPath
-            };
-            foreach (var control in OverlappedControls)
+            foreach (var control in controlsToModify)
             {
                 control.MouseEnter += OverlappedControls_MouseEnter;
             }
@@ -592,7 +615,7 @@ namespace QuillsModManagerV2.UserControls
         {
             if (sender is Guna2Button btn)
             {
-                if (btn.Name == "BtnChooseGamePath")
+                if (btn.Name == "BtnChooseGamePath" || btn.Name == "BtnGamePathLabel")
                 {
                     ToastUtil.CreateToast("Hint: steam\\steamapps\\common\\CastleCrashers");
                     using (var openFileDialog = new OpenFileDialog())
@@ -614,7 +637,7 @@ namespace QuillsModManagerV2.UserControls
                             {
                                 ToastUtil.CreateToast(
                                     Color.Red,
-                                    "Invalid selection! Please select the castle.exe folder."
+                                    "Invalid selection! Please select the castle.exe file/folder."
                                 );
                                 return;
                             }
@@ -629,7 +652,7 @@ namespace QuillsModManagerV2.UserControls
                         }
                     }
                 }
-                else if (btn.Name == "BtnChooseUserDataPath")
+                else if (btn.Name == "BtnChooseUserDataPath" || btn.Name == "BtnUserDataPathLabel")
                 {
                     ToastUtil.CreateToast("Hint: steam\\userdata");
                     using (var openFileDialog = new OpenFileDialog())
@@ -641,33 +664,34 @@ namespace QuillsModManagerV2.UserControls
                         openFileDialog.Filter = "Folders|\n";
                         openFileDialog.InitialDirectory = Settings.Default.UserDataPath;
 
-                        if (
-                            openFileDialog.ShowDialog() == DialogResult.OK
-                            && Path.GetDirectoryName(openFileDialog.FileName)
-                                .ToLower()
-                                .EndsWith("userdata")
-                        )
+                        if (openFileDialog.ShowDialog() == DialogResult.OK)
                         {
-                            Settings.Default.UserDataPath = Path.GetDirectoryName(
-                                openFileDialog.FileName
-                            );
-                            Settings.Default.Save();
-                            ToastUtil.CreateToast(
-                                Color.Lime,
-                                "User data path set to: " + Settings.Default.UserDataPath
-                            );
-                        }
-                        else
-                        {
-                            ToastUtil.CreateToast(
-                                Color.Red,
-                                "Invalid selection! Please select the steam\\userdata folder."
-                            );
-                            return;
+                            if (
+                                Path.GetDirectoryName(openFileDialog.FileName)
+                                    .ToLower()
+                                    .EndsWith("userdata")
+                            )
+                            {
+                                Settings.Default.UserDataPath = Path.GetDirectoryName(
+                                    openFileDialog.FileName
+                                );
+                                Settings.Default.Save();
+                                ToastUtil.CreateToast(
+                                    Color.Lime,
+                                    "User data path set to: " + Settings.Default.UserDataPath
+                                );
+                            }
+                            else
+                            {
+                                ToastUtil.CreateToast(
+                                    Color.Red,
+                                    "Invalid selection! Please select the steam\\userdata folder."
+                                );
+                            }
                         }
                     }
                 }
-                else if (btn.Name == "BtnChooseModPath")
+                else if (btn.Name == "BtnChooseModPath" || btn.Name == "BtnModLibraryPathLabel")
                 {
                     ToastUtil.CreateToast("Hint: repos\\QMM-Mod-Repo");
                     using (var openFileDialog = new OpenFileDialog())

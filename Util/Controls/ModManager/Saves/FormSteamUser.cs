@@ -260,7 +260,7 @@ namespace QuillsModManagerV2.Util.Controls.ModManager.Saves
                     Top = 8,
                     Width = this.Width - 100,
                     Height = 24,
-                    Font = new Font(this.Font.FontFamily, 11, FontStyle.Bold),
+                    Font = new Font(this.Font.FontFamily, 10, FontStyle.Bold),
                     ForeColor = Settings.Default.TextColor,
                     BackColor = Color.Transparent
                 };

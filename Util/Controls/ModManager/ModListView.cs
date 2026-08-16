@@ -1030,7 +1030,7 @@ namespace QuillsModManagerV2.Util.Controls
             if (
                 _dragIndex >= 0
                 && !_isDragging
-                && (Control.MouseButtons & MouseButtons.Left) == MouseButtons.Left
+                && (MouseButtons & MouseButtons.Left) == MouseButtons.Left
             )
             {
                 if (Math.Abs(e.Y - _dragStartY) > 6)
@@ -1150,8 +1150,8 @@ namespace QuillsModManagerV2.Util.Controls
                     18,
                     18
                 );
-                bool ctrl = (Control.ModifierKeys & Keys.Control) == Keys.Control;
-                bool shift = (Control.ModifierKeys & Keys.Shift) == Keys.Shift;
+                bool ctrl = (ModifierKeys & Keys.Control) == Keys.Control;
+                bool shift = (ModifierKeys & Keys.Shift) == Keys.Shift;
                 if (shift && _lastSelectedIndex >= 0)
                 {
                     int a = Math.Min(_lastSelectedIndex, idx);
