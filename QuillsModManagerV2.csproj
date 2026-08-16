@@ -99,12 +99,6 @@
     <Compile Include="UserControls\FormThemer.Designer.cs">
       <DependentUpon>FormThemer.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\FormAbout.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UserControls\FormAbout.Designer.cs">
-      <DependentUpon>FormAbout.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\FormSettings.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,10 +179,6 @@
     </Compile>
     <EmbeddedResource Include="QMM.resx">
       <DependentUpon>QMM.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\FormAbout.resx">
-      <DependentUpon>FormAbout.cs</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\FormSettings.resx">
       <DependentUpon>FormSettings.cs</DependentUpon>

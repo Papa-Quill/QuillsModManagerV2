@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -1098,6 +1099,16 @@ namespace QuillsModManagerV2.Util.Controls.ModManager
             if (string.IsNullOrWhiteSpace(sel))
                 return;
             TryDeleteProfile(sel, currentSteamUser);
+        }
+
+        private void BtnOpenTutorial_Click(object sender, EventArgs e)
+        {
+            Process.Start(
+                new ProcessStartInfo("https://www.youtube.com/watch?v=kntkFIjH3CA")
+                {
+                    UseShellExecute = true
+                }
+            );
         }
     }
 }

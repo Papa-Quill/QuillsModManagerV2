@@ -418,6 +418,7 @@
             this.BtnOpenTutorial.PressedColor = System.Drawing.Color.Transparent;
             this.BtnOpenTutorial.Size = new System.Drawing.Size(32, 32);
             this.BtnOpenTutorial.TabIndex = 0;
+            this.BtnOpenTutorial.Click += new System.EventHandler(this.BtnOpenTutorial_Click);
             this.BtnOpenTutorial.MouseHover += new System.EventHandler(this.BtnToolTip_MouseEnter);
             // 
             // FormProfileManager
