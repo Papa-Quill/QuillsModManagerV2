@@ -2,6 +2,7 @@
 # Quill's Mod Manager v2
 
 The successor mog champion to QMM v1 is finally here.
+Download from Nexus: https://www.nexusmods.com/castlecrashers/mods/4
 
 ## Features
 - Highly customizable configuration
