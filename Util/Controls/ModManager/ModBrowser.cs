@@ -747,8 +747,9 @@ namespace QuillsModManagerV2.Util.Controls
             {
                 separator.SeparatorColorArgb = color.ToArgb();
                 listViewMods.Invalidate(false);
+                ModRegistry.Save(mods);
             };
-            selector.FormClosed += (s, e) => ModRegistry.Save(mods);
+            selector.FormClosing += (s, e) => ModRegistry.Save(mods);
             Form owner = listViewMods.FindForm();
             if (owner == null)
             {

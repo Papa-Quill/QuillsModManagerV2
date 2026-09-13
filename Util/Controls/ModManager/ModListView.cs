@@ -1916,7 +1916,14 @@ namespace QuillsModManagerV2.Util.Controls
         {
             base.OnMouseLeave(e);
             if (!_isDragging)
+            {
                 _hoverIndex = -1;
+                _hoverColumn = -1;
+                if (Cursor == Cursors.VSplit)
+                    Cursor = Cursors.Default;
+                _tooltip?.Hide(this);
+                _tooltipShownIndex = -1;
+            }
 
             Invalidate();
         }
