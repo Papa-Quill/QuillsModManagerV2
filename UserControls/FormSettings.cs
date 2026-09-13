@@ -705,9 +705,17 @@ namespace QuillsModManagerV2.UserControls
 
                         if (openFileDialog.ShowDialog() == DialogResult.OK)
                         {
-                            Settings.Default.ModPath = Path.GetDirectoryName(
-                                openFileDialog.FileName
-                            );
+                            string selectedPath = Path.GetDirectoryName(openFileDialog.FileName);
+                            if (
+                                Directory.Exists(Path.Combine(selectedPath, "data"))
+                                && Directory.Exists(selectedPath)
+                            )
+                            {
+                                string parentPath = Directory.GetParent(selectedPath)?.FullName;
+                                if (!string.IsNullOrWhiteSpace(parentPath))
+                                    selectedPath = parentPath;
+                            }
+                            Settings.Default.ModPath = selectedPath;
                             Settings.Default.Save();
                             ToastUtil.CreateToast(
                                 Color.Lime,

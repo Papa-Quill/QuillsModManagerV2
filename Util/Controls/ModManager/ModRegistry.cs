@@ -10,10 +10,13 @@ namespace QuillsModManagerV2.Util.Controls
 {
     public static class ModRegistry
     {
-        private class RegistryEntry
+        public class LayoutEntry
         {
             public string Folder { get; set; }
             public bool Enabled { get; set; }
+            public bool IsSeparator { get; set; }
+            public string SeparatorName { get; set; }
+            public int SeparatorColorArgb { get; set; }
         }
 
         private static string RegistryPath
@@ -45,10 +48,13 @@ namespace QuillsModManagerV2.Util.Controls
                     );
                 }
                 catch { }
-                List<RegistryEntry> data = mods.Select(m => new RegistryEntry
+                List<LayoutEntry> data = mods.Select(m => new LayoutEntry
                     {
-                        Folder = Path.GetFileName(m.Path),
-                        Enabled = m.Enabled
+                        Folder = m.IsSeparator ? null : Path.GetFileName(m.Path),
+                        Enabled = m.Enabled,
+                        IsSeparator = m.IsSeparator,
+                        SeparatorName = m.SeparatorName,
+                        SeparatorColorArgb = m.SeparatorColorArgb
                     })
                     .ToList();
 
@@ -79,15 +85,17 @@ namespace QuillsModManagerV2.Util.Controls
                 if (!File.Exists(RegistryPath))
                     return result;
 
-                List<RegistryEntry> data = JsonConvert.DeserializeObject<List<RegistryEntry>>(
+                List<LayoutEntry> data = JsonConvert.DeserializeObject<List<LayoutEntry>>(
                     File.ReadAllText(RegistryPath)
                 );
 
                 if (data == null)
                     return result;
 
-                foreach (RegistryEntry mod in data)
+                foreach (LayoutEntry mod in data)
                 {
+                    if (mod.IsSeparator || string.IsNullOrWhiteSpace(mod.Folder))
+                        continue;
                     string fullPath = Path.Combine(Settings.Default.ModPath, mod.Folder);
 
                     result.Add(fullPath);
@@ -106,6 +114,33 @@ namespace QuillsModManagerV2.Util.Controls
             catch { }
 
             return result;
+        }
+
+        public static List<LayoutEntry> LoadLayout(out Dictionary<string, bool> enabled)
+        {
+            enabled = new Dictionary<string, bool>(StringComparer.OrdinalIgnoreCase);
+            try
+            {
+                if (!File.Exists(RegistryPath))
+                    return new List<LayoutEntry>();
+
+                var data = JsonConvert.DeserializeObject<List<LayoutEntry>>(
+                    File.ReadAllText(RegistryPath)
+                ) ?? new List<LayoutEntry>();
+                foreach (var item in data)
+                {
+                    if (!item.IsSeparator && !string.IsNullOrWhiteSpace(item.Folder))
+                    {
+                        string fullPath = Path.Combine(Settings.Default.ModPath, item.Folder);
+                        enabled[fullPath] = item.Enabled;
+                    }
+                }
+                return data;
+            }
+            catch
+            {
+                return new List<LayoutEntry>();
+            }
         }
     }
 }

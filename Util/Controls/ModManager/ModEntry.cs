@@ -28,6 +28,10 @@ namespace QuillsModManagerV2.Util.Controls
         public string Version { get; set; }
         public string Description { get; set; }
         public Image Icon { get; set; }
+        public bool IsSeparator { get; set; }
+        public string SeparatorName { get; set; }
+        public int SeparatorColorArgb { get; set; }
+        public bool MissingDataFolder { get; set; }
         public Dictionary<string, List<string>> Conflicts { get; set; } =
             new Dictionary<string, List<string>>();
         public bool HasConflict => Conflicts != null && Conflicts.Count > 0;

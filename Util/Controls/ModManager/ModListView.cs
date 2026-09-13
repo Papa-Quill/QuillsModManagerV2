@@ -5,8 +5,10 @@ using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Drawing.Imaging;
 using System.Drawing.Text;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 using QuillsModManagerV2.Util.Controls.AnimatedList;
 
 namespace QuillsModManagerV2.Util.Controls
@@ -33,6 +35,25 @@ namespace QuillsModManagerV2.Util.Controls
         private const float AUTO_SCROLL_ACCEL = 0.18f;
         private const float AUTO_SCROLL_MAX = 6f;
         private int _rowHeight = 42;
+        private const int HeaderHeight = 28;
+        private const int ColumnStartX = 86;
+        private const int RightControlsWidth = 60;
+        private int _titleColumnWidth = 220;
+        private int _authorColumnWidth = 120;
+        private int _versionColumnWidth = 80;
+        private int _resizingColumn = -1;
+        private int _resizeStartX;
+        private int _resizeStartWidth;
+        private int _hoverColumn = -1;
+        private TextBox _separatorEditor;
+        private ModEntry _editingSeparator;
+        private int _separatorEditCandidate = -1;
+        private const int MinimumRowHeight = 42;
+        private static readonly string ColumnSettingsPath = Path.Combine(
+            Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+            "QuillsModManagerV2",
+            "modlistview.json"
+        );
         private int _hoverIndex = -1;
         private HashSet<int> _selectedIndices = new HashSet<int>();
         private int _selectedIndex = -1;
@@ -46,6 +67,8 @@ namespace QuillsModManagerV2.Util.Controls
         private int _tooltipShownIndex = -1;
         public event Action<int> ItemRightClicked;
         public event Action<int> ItemDoubleClicked;
+        public event Action<int> WarningClicked;
+        public event Action<ModEntry> SeparatorRenamed;
         public event Action ItemsReordered;
         public event Action<int, bool> ToggleChanged;
         private readonly AnimatedListController _animation = new AnimatedListController();
@@ -71,6 +94,7 @@ namespace QuillsModManagerV2.Util.Controls
                     _items.ListChanged += Items_ListChanged;
 
                 UpdateScroll();
+                UpdateRowHeight();
 
                 UpdateEmptyMessage();
 
@@ -99,6 +123,12 @@ namespace QuillsModManagerV2.Util.Controls
             (_items != null && _selectedIndex >= 0 && _selectedIndex < _items.Count)
                 ? _items[_selectedIndex]
                 : null;
+
+        public void BeginEditSelectedSeparator()
+        {
+            if (_selectedIndex >= 0 && _items != null && _selectedIndex < _items.Count)
+                BeginSeparatorEdit(_selectedIndex);
+        }
 
         public ModListView()
         {
@@ -262,11 +292,71 @@ namespace QuillsModManagerV2.Util.Controls
             BackColor = Properties.Settings.Default.ButtonColor;
             ForeColor = Properties.Settings.Default.TextColor;
             Font = new Font("Segoe UI", 9F);
+            LoadColumnSettings();
 
             _animation.AnimationUpdated += () =>
             {
                 Invalidate(false);
             };
+        }
+
+        private void UpdateRowHeight()
+        {
+            int height = MinimumRowHeight;
+            if (_rowHeight != height)
+            {
+                _rowHeight = height;
+                Sync_animation();
+                UpdateScroll();
+            }
+        }
+
+        private void LoadColumnSettings()
+        {
+            try
+            {
+                if (!File.Exists(ColumnSettingsPath))
+                    return;
+                var settings = JsonConvert.DeserializeObject<ColumnSettings>(
+                    File.ReadAllText(ColumnSettingsPath)
+                );
+                if (settings == null)
+                    return;
+                _titleColumnWidth = Math.Max(60, settings.TitleWidth);
+                _authorColumnWidth = Math.Max(60, settings.AuthorWidth);
+                _versionColumnWidth = Math.Max(60, settings.VersionWidth);
+            }
+            catch { }
+        }
+
+        private void SaveColumnSettings()
+        {
+            try
+            {
+                string directory = Path.GetDirectoryName(ColumnSettingsPath);
+                if (!Directory.Exists(directory))
+                    Directory.CreateDirectory(directory);
+                File.WriteAllText(
+                    ColumnSettingsPath,
+                    JsonConvert.SerializeObject(
+                        new ColumnSettings
+                        {
+                            TitleWidth = _titleColumnWidth,
+                            AuthorWidth = _authorColumnWidth,
+                            VersionWidth = _versionColumnWidth
+                        },
+                        Formatting.Indented
+                    )
+                );
+            }
+            catch { }
+        }
+
+        private class ColumnSettings
+        {
+            public int TitleWidth { get; set; }
+            public int AuthorWidth { get; set; }
+            public int VersionWidth { get; set; }
         }
 
         private bool _animateNextItemsChange = false;
@@ -335,6 +425,7 @@ namespace QuillsModManagerV2.Util.Controls
                 case ListChangedType.ItemDeleted:
                 case ListChangedType.Reset:
                     UpdateScroll();
+                    UpdateRowHeight();
 
                     Sync_animation();
 
@@ -407,7 +498,7 @@ namespace QuillsModManagerV2.Util.Controls
             int count = _items?.Count ?? 0;
 
             int contentHeight = Height;
-            int visibleRows = Math.Max(1, contentHeight / _rowHeight);
+            int visibleRows = Math.Max(1, Math.Max(1, contentHeight - HeaderHeight) / _rowHeight);
 
             _vScroll.Minimum = 0;
             _vScroll.LargeChange = visibleRows;
@@ -425,6 +516,231 @@ namespace QuillsModManagerV2.Util.Controls
             }
 
             UpdateEmptyMessage();
+        }
+
+        private void DrawHeaders(Graphics g, Color background, Color textColor)
+        {
+            int right = Width - _vScroll.Width;
+            using (Brush b = new SolidBrush(background))
+                g.FillRectangle(b, 0, 0, right, HeaderHeight);
+
+            int[] widths = { _titleColumnWidth, _authorColumnWidth, _versionColumnWidth };
+            string[] labels = { "Title", "Author", "Version", "Description" };
+            int x = ColumnStartX;
+            for (int i = 0; i < labels.Length; i++)
+            {
+                int width = i < widths.Length
+                    ? widths[i]
+                    : Math.Max(1, right - x - RightControlsWidth);
+                using (Brush b = new SolidBrush(
+                    i == _hoverColumn
+                        ? Properties.Settings.Default.BGTertiary 
+                        : background
+                ))
+                {
+                    g.FillRectangle(b, x, 0, width, HeaderHeight);
+                }
+                x += width;
+            }
+
+            using (Pen p = new Pen(Color.FromArgb(90, textColor)))
+                g.DrawLine(p, 0, HeaderHeight - 1, right, HeaderHeight - 1);
+            using (Brush b = new SolidBrush(textColor))
+            using (StringFormat sf = new StringFormat { LineAlignment = StringAlignment.Center })
+            {
+                x = ColumnStartX;
+                for (int i = 0; i < labels.Length; i++)
+                {
+                    int width = i < widths.Length
+                        ? widths[i]
+                        : Math.Max(1, right - x - RightControlsWidth);
+                    g.DrawString(labels[i], Font, b, new RectangleF(x, 0, width, HeaderHeight), sf);
+                    x += width;
+                }
+            }
+        }
+
+        private int HeaderResizeColumn(int x)
+        {
+            int[] boundaries =
+            {
+                ColumnStartX + _titleColumnWidth,
+                ColumnStartX + _titleColumnWidth + _authorColumnWidth,
+                ColumnStartX + _titleColumnWidth + _authorColumnWidth + _versionColumnWidth
+            };
+            for (int i = 0; i < boundaries.Length; i++)
+                if (Math.Abs(x - boundaries[i]) <= 4)
+                    return i;
+            return -1;
+        }
+
+        private int HeaderColumnFromPoint(int x)
+        {
+            int right = Width - _vScroll.Width - RightControlsWidth;
+            if (x < ColumnStartX || x >= right)
+                return -1;
+            int titleEnd = ColumnStartX + _titleColumnWidth;
+            int authorEnd = titleEnd + _authorColumnWidth;
+            int versionEnd = authorEnd + _versionColumnWidth;
+            if (x < titleEnd)
+                return 0;
+            if (x < authorEnd)
+                return 1;
+            if (x < versionEnd)
+                return 2;
+            return 3;
+        }
+
+        private void AutoFitColumn(int column)
+        {
+            string header = column == 0
+                ? "Title"
+                : column == 1 ? "Author" : column == 2 ? "Version" : "Description";
+            int width = TextRenderer.MeasureText(header, Font).Width + 12;
+            if (_items != null)
+            {
+                foreach (var item in _items)
+                {
+                    if (item.IsSeparator)
+                        continue;
+                    string value = column == 0
+                        ? item.Title
+                        : column == 1 ? item.Author : column == 2 ? item.Version : item.Description;
+                    width = Math.Max(width, TextRenderer.MeasureText(value ?? string.Empty, Font).Width + 12);
+                }
+            }
+            SetColumnWidth(column, Math.Min(600, Math.Max(60, width)));
+        }
+
+        private void SetColumnWidth(int column, int width)
+        {
+            width = Math.Max(60, width);
+            if (column == 0)
+                _titleColumnWidth = width;
+            else if (column == 1)
+                _authorColumnWidth = width;
+            else if (column == 2)
+                _versionColumnWidth = width;
+            UpdateRowHeight();
+            UpdateScroll();
+            SaveColumnSettings();
+            Invalidate(false);
+        }
+
+        protected override void OnMouseDoubleClick(MouseEventArgs e)
+        {
+            base.OnMouseDoubleClick(e);
+            if (e.Y >= HeaderHeight)
+                return;
+            int column = HeaderColumnFromPoint(e.X);
+            int resizeColumn = HeaderResizeColumn(e.X);
+            if (resizeColumn >= 0)
+                column = resizeColumn;
+            if (column >= 0)
+                AutoFitColumn(column);
+        }
+
+        private Rectangle SeparatorTextRectangle(int rowIndex)
+        {
+            int y = GetRowTop(rowIndex);
+            return new Rectangle(
+                ColumnStartX,
+                y + 8,
+                Math.Max(1, Width - ColumnStartX - _vScroll.Width - 16),
+                Math.Max(1, _rowHeight - 16)
+            );
+        }
+
+        private int GetRowTop(int rowIndex)
+        {
+            int y = HeaderHeight - (_vScroll.Value * _rowHeight);
+            if (_items != null && rowIndex >= 0 && rowIndex < _items.Count)
+            {
+                var item = _items[rowIndex];
+                if (_animation.AnimationLookup.TryGetValue(item, out AnimatedItem animation))
+                {
+                    float offset = _rowOffsets.ContainsKey(rowIndex) ? _rowOffsets[rowIndex] : 0f;
+                    return y + (int)animation.CurrentY + (int)animation.OffsetY + (int)offset;
+                }
+            }
+            return y + rowIndex * _rowHeight;
+        }
+
+        private void BeginSeparatorEdit(int index)
+        {
+            if (_items == null || index < 0 || index >= _items.Count || !_items[index].IsSeparator)
+                return;
+
+            EndSeparatorEdit(true);
+            _editingSeparator = _items[index];
+            Rectangle bounds = SeparatorTextRectangle(index);
+            bounds.Height = Font.Height + 2;
+            bounds.Y = SeparatorTextRectangle(index).Top
+                + (SeparatorTextRectangle(index).Height - bounds.Height) / 2;
+            Color separatorColor = _editingSeparator.SeparatorColorArgb == 0
+                ? Properties.Settings.Default.BGTertiary
+                : Color.FromArgb(_editingSeparator.SeparatorColorArgb);
+            _separatorEditor = new TextBox
+            {
+                BorderStyle = BorderStyle.None,
+                BackColor = separatorColor,
+                ForeColor = GetSeparatorTextColor(separatorColor),
+                Font = Font,
+                Text = _editingSeparator.SeparatorName ?? "Section",
+                Bounds = bounds,
+                Multiline = false,
+                AcceptsReturn = false,
+                TextAlign = HorizontalAlignment.Center
+            };
+            _separatorEditor.KeyDown += SeparatorEditor_KeyDown;
+            _separatorEditor.LostFocus += SeparatorEditor_LostFocus;
+            Controls.Add(_separatorEditor);
+            _separatorEditor.BringToFront();
+            _separatorEditor.SelectAll();
+            _separatorEditor.Focus();
+        }
+
+        private void SeparatorEditor_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                e.SuppressKeyPress = true;
+                EndSeparatorEdit(true);
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                e.SuppressKeyPress = true;
+                EndSeparatorEdit(false);
+            }
+        }
+
+        private void SeparatorEditor_LostFocus(object sender, EventArgs e)
+        {
+            EndSeparatorEdit(true);
+        }
+
+        private void EndSeparatorEdit(bool commit)
+        {
+            if (_separatorEditor == null)
+                return;
+
+            ModEntry renamedSeparator = _editingSeparator;
+            if (commit && renamedSeparator != null)
+            {
+                string text = _separatorEditor.Text.Trim();
+                if (!string.IsNullOrWhiteSpace(text))
+                    renamedSeparator.SeparatorName = text;
+            }
+            TextBox editor = _separatorEditor;
+            _separatorEditor = null;
+            _editingSeparator = null;
+            editor.KeyDown -= SeparatorEditor_KeyDown;
+            editor.LostFocus -= SeparatorEditor_LostFocus;
+            Controls.Remove(editor);
+            editor.Dispose();
+            if (commit)
+                SeparatorRenamed?.Invoke(renamedSeparator);
+            Invalidate(false);
         }
 
         protected override void OnPaint(PaintEventArgs e)
@@ -447,6 +763,7 @@ namespace QuillsModManagerV2.Util.Controls
             e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
             e.Graphics.TextRenderingHint = TextRenderingHint.SystemDefault;
             e.Graphics.Clear(themeBackground);
+            DrawHeaders(e.Graphics, themeSecondary, themeText);
             if (!string.IsNullOrEmpty(_emptyMessage))
             {
                 try
@@ -482,7 +799,7 @@ namespace QuillsModManagerV2.Util.Controls
                 return;
             }
             int start = _vScroll.Value;
-            int visible = Math.Max(1, (Height + _rowHeight - 1) / _rowHeight);
+            int visible = Math.Max(1, (Height - HeaderHeight + _rowHeight - 1) / _rowHeight);
             for (int i = 0; i < visible; i++)
             {
                 int idx = start + i;
@@ -509,7 +826,7 @@ namespace QuillsModManagerV2.Util.Controls
 
                 bool isSelected = _selectedIndices.Contains(idx);
                 bool isHovered = _hoverIndex == idx;
-                int y = (int)anim.CurrentY - (_vScroll.Value * _rowHeight);
+                int y = HeaderHeight + (int)anim.CurrentY - (_vScroll.Value * _rowHeight);
                 float dragOffset = _rowOffsets.ContainsKey(idx) ? _rowOffsets[idx] : 0f;
                 float py = y + dragOffset + anim.OffsetY;
                 Rectangle rowRect = new Rectangle(0, (int)py, Width - _vScroll.Width, _rowHeight);
@@ -540,6 +857,37 @@ namespace QuillsModManagerV2.Util.Controls
                 {
                     _cachedBrush.Color = WithOpacity(rowBack, anim.Opacity);
                     e.Graphics.FillRectangle(_cachedBrush, rowRect);
+                }
+
+                if (m.IsSeparator)
+                {
+                    Color separatorColor = m.SeparatorColorArgb == 0
+                        ? Properties.Settings.Default.BGTertiary
+                        : Color.FromArgb(m.SeparatorColorArgb);
+                    Color separatorTextColor = GetSeparatorTextColor(separatorColor);
+                    using (Brush separatorBrush = new SolidBrush(WithOpacity(separatorColor, anim.Opacity)))
+                    using (StringFormat separatorFormat = new StringFormat
+                    {
+                        Alignment = StringAlignment.Center,
+                        LineAlignment = StringAlignment.Center
+                    })
+                    {
+                        e.Graphics.FillRectangle(
+                            separatorBrush,
+                            new Rectangle(8, (int)py + 8, Width - _vScroll.Width - 16, _rowHeight - 16)
+                        );
+                        using (Brush textBrush = new SolidBrush(separatorTextColor))
+                        {
+                            e.Graphics.DrawString(
+                                m.SeparatorName ?? "Section",
+                                Font,
+                                textBrush,
+                                new RectangleF(ColumnStartX, (int)py + 8, Width - ColumnStartX - _vScroll.Width - 16, _rowHeight - 16),
+                                separatorFormat
+                            );
+                        }
+                    }
+                    continue;
                 }
 
                 Rectangle iconRect = new Rectangle(8, (int)py + 6, 28, 28);
@@ -576,9 +924,13 @@ namespace QuillsModManagerV2.Util.Controls
                     18,
                     18
                 );
-                if (m.HasConflict && m.Enabled)
+                if ((m.HasConflict && m.Enabled) || m.MissingDataFolder)
                 {
-                    using (Brush b = new SolidBrush(Color.FromArgb(255, 210, 140, 0)))
+                    using (Brush b = new SolidBrush(
+                        m.MissingDataFolder
+                            ? Color.FromArgb(255, 190, 70, 70)
+                            : Color.FromArgb(255, 210, 140, 0)
+                    ))
                     {
                         Point[] tri = new Point[]
                         {
@@ -604,24 +956,24 @@ namespace QuillsModManagerV2.Util.Controls
                         );
                     }
                 }
-                int textX = toggleRect.Right + 8;
-                int colTitleW = 220;
-                int colAuthorW = 120;
-                int colVersionW = 80;
-                int rightControlsWidth = 60;
+                int textX = ColumnStartX;
+                int colTitleW = _titleColumnWidth;
+                int colAuthorW = _authorColumnWidth;
+                int colVersionW = _versionColumnWidth;
+                int rightControlsWidth = RightControlsWidth;
                 float offset2 = dragOffset + anim.OffsetY;
-                RectangleF titleRect = new RectangleF(textX, y + 8 + offset2, colTitleW, 20);
+                RectangleF titleRect = new RectangleF(textX, y + 8 + offset2, colTitleW, _rowHeight - 16);
                 RectangleF authorRect2 = new RectangleF(
                     textX + colTitleW,
                     y + 8 + offset2,
                     colAuthorW,
-                    20
+                    _rowHeight - 16
                 );
                 RectangleF versionRect2 = new RectangleF(
                     textX + colTitleW + colAuthorW,
                     y + 8 + offset2,
                     colVersionW,
-                    20
+                    _rowHeight - 16
                 );
                 int descWidth = Math.Max(
                     1,
@@ -646,7 +998,11 @@ namespace QuillsModManagerV2.Util.Controls
                     m.Title,
                     titleRect,
                     anim.Opacity,
-                    TextFormatFlags.VerticalCenter | TextFormatFlags.Left
+                    TextFormatFlags.VerticalCenter
+                        | TextFormatFlags.Left
+                        | TextFormatFlags.NoPrefix
+                        | TextFormatFlags.SingleLine
+                        | TextFormatFlags.EndEllipsis
                 );
 
                 DrawFadedText(
@@ -667,7 +1023,9 @@ namespace QuillsModManagerV2.Util.Controls
 
                 DrawFadedText(
                     e.Graphics,
-                    m.Description,
+                    m.MissingDataFolder
+                        ? "Warning: missing data folder"
+                        : m.Description,
                     descRect,
                     anim.Opacity,
                     TextFormatFlags.VerticalCenter
@@ -728,7 +1086,7 @@ namespace QuillsModManagerV2.Util.Controls
             {
                 var m = _items[_dragIndex];
                 float drawY = _dragMouseY - (_rowHeight / 2);
-                drawY = Math.Max(0, Math.Min(this.Height - _rowHeight, drawY));
+                drawY = Math.Max(HeaderHeight, Math.Min(this.Height - _rowHeight, drawY));
                 Rectangle floatRect = new Rectangle(
                     0,
                     (int)drawY,
@@ -760,6 +1118,35 @@ namespace QuillsModManagerV2.Util.Controls
                 {
                     e.Graphics.FillPath(fb, gp);
                 }
+                if (m.IsSeparator)
+                {
+                    Color separatorColor = m.SeparatorColorArgb == 0
+                        ? Properties.Settings.Default.BGTertiary
+                        : Color.FromArgb(m.SeparatorColorArgb);
+                    Color separatorTextColor = GetSeparatorTextColor(separatorColor);
+                    using (Brush separatorBrush = new SolidBrush(separatorColor))
+                    using (Brush textBrush = new SolidBrush(separatorTextColor))
+                    using (StringFormat separatorFormat = new StringFormat
+                    {
+                        Alignment = StringAlignment.Center,
+                        LineAlignment = StringAlignment.Center
+                    })
+                    {
+                        e.Graphics.FillRectangle(
+                            separatorBrush,
+                            new Rectangle(8, (int)drawY + 8, Width - _vScroll.Width - 16, _rowHeight - 16)
+                        );
+                        e.Graphics.DrawString(
+                            m.SeparatorName ?? "Section",
+                            Font,
+                            textBrush,
+                            new RectangleF(ColumnStartX, (int)drawY + 8, Width - ColumnStartX - _vScroll.Width - 16, _rowHeight - 16),
+                            separatorFormat
+                        );
+                    }
+                }
+                else
+                {
                 Rectangle iconRect = new Rectangle(8, (int)drawY + 6, 28, 28);
                 if (m.Icon != null)
                     e.Graphics.DrawImage(m.Icon, iconRect);
@@ -780,9 +1167,13 @@ namespace QuillsModManagerV2.Util.Controls
                     18,
                     18
                 );
-                if (m.HasConflict && m.Enabled)
+                if ((m.HasConflict && m.Enabled) || m.MissingDataFolder)
                 {
-                    using (Brush b = new SolidBrush(Color.FromArgb(255, 210, 140, 0)))
+                    using (Brush b = new SolidBrush(
+                        m.MissingDataFolder
+                            ? Color.FromArgb(255, 190, 70, 70)
+                            : Color.FromArgb(255, 210, 140, 0)
+                    ))
                     {
                         Point[] tri = new Point[]
                         {
@@ -815,23 +1206,23 @@ namespace QuillsModManagerV2.Util.Controls
                         e.Graphics.DrawString("!", this.Font, btxt, warningRect, sf);
                     }
                 }
-                int textX = toggleRect.Right + 8;
-                int colTitleW = 220;
-                int colAuthorW = 120;
-                int colVersionW = 80;
-                int rightControlsWidth = 60;
-                RectangleF titleRect = new RectangleF(textX, (int)drawY + 8, colTitleW, 20);
+                int textX = ColumnStartX;
+                int colTitleW = _titleColumnWidth;
+                int colAuthorW = _authorColumnWidth;
+                int colVersionW = _versionColumnWidth;
+                int rightControlsWidth = RightControlsWidth;
+                RectangleF titleRect = new RectangleF(textX, (int)drawY + 8, colTitleW, _rowHeight - 16);
                 RectangleF authorRect = new RectangleF(
                     textX + colTitleW,
                     (int)drawY + 8,
                     colAuthorW,
-                    20
+                    _rowHeight - 16
                 );
                 RectangleF versionRect = new RectangleF(
                     textX + colTitleW + colAuthorW,
                     (int)drawY + 8,
                     colVersionW,
-                    20
+                    _rowHeight - 16
                 );
                 int descWidth = Math.Max(
                     1,
@@ -856,7 +1247,11 @@ namespace QuillsModManagerV2.Util.Controls
                     Font,
                     Rectangle.Round(titleRect),
                     Properties.Settings.Default.TextColor,
-                    TextFormatFlags.VerticalCenter | TextFormatFlags.Left
+                    TextFormatFlags.VerticalCenter
+                        | TextFormatFlags.Left
+                        | TextFormatFlags.NoPrefix
+                        | TextFormatFlags.SingleLine
+                        | TextFormatFlags.EndEllipsis
                 );
                 TextRenderer.DrawText(
                     e.Graphics,
@@ -908,6 +1303,7 @@ namespace QuillsModManagerV2.Util.Controls
                         dotSize,
                         dotSize
                     );
+                }
                 }
             }
         }
@@ -983,6 +1379,52 @@ namespace QuillsModManagerV2.Util.Controls
             return Color.FromArgb(alpha, color);
         }
 
+        private Color GetSeparatorTextColor(Color background)
+        {
+            Color themeText = Properties.Settings.Default.TextColor;
+            if (GetContrastRatio(themeText, background) >= 4.5)
+                return themeText;
+
+            Color target = GetRelativeLuminance(background) > 0.5 ? Color.Black : Color.White;
+            for (int i = 1; i <= 20; i++)
+            {
+                float amount = i / 20f;
+                Color candidate = Color.FromArgb(
+                    255,
+                    (int)(themeText.R + (target.R - themeText.R) * amount),
+                    (int)(themeText.G + (target.G - themeText.G) * amount),
+                    (int)(themeText.B + (target.B - themeText.B) * amount)
+                );
+                if (GetContrastRatio(candidate, background) >= 4.5)
+                    return candidate;
+            }
+            return target;
+        }
+
+        private double GetContrastRatio(Color foreground, Color background)
+        {
+            double foregroundLuminance = GetRelativeLuminance(foreground);
+            double backgroundLuminance = GetRelativeLuminance(background);
+            double brighter = Math.Max(foregroundLuminance, backgroundLuminance);
+            double darker = Math.Min(foregroundLuminance, backgroundLuminance);
+            return (brighter + 0.05) / (darker + 0.05);
+        }
+
+        private double GetRelativeLuminance(Color color)
+        {
+            double RedLuminance = GetColorLuminance(color.R / 255.0);
+            double GreenLuminance = GetColorLuminance(color.G / 255.0);
+            double BlueLuminance = GetColorLuminance(color.B / 255.0);
+            return (0.2126 * RedLuminance) + (0.7152 * GreenLuminance) + (0.0722 * BlueLuminance);
+        }
+
+        private double GetColorLuminance(double channel)
+        {
+            return channel <= 0.03928
+                ? channel / 12.92
+                : Math.Pow((channel + 0.055) / 1.055, 2.4);
+        }
+
         private void DrawFadedText(
             Graphics g,
             string text,
@@ -1009,6 +1451,7 @@ namespace QuillsModManagerV2.Util.Controls
                 {
                     sf.Alignment = StringAlignment.Near;
                     sf.LineAlignment = StringAlignment.Center;
+                    sf.FormatFlags = StringFormatFlags.LineLimit;
 
                     if ((flags & TextFormatFlags.EndEllipsis) != 0)
                         sf.Trimming = StringTrimming.EllipsisCharacter;
@@ -1018,9 +1461,46 @@ namespace QuillsModManagerV2.Util.Controls
             }
         }
 
+        private string GetWarningTooltip(ModEntry item)
+        {
+            if (item.MissingDataFolder)
+            {
+                string message =
+                    "Warning: this mod may be incorrectly configured; its data folder is missing."
+                    + " Click me to fix automatically.";
+                if (item.HasConflict && item.Enabled)
+                    message += Environment.NewLine + GetConflictTooltip(item);
+                return message;
+            }
+
+            return GetConflictTooltip(item);
+        }
+
+        private string GetConflictTooltip(ModEntry item)
+        {
+            return "Warning: there are file conflicts with the following mods: "
+                + item.ConflictModNames;
+        }
+
         protected override void OnMouseMove(MouseEventArgs e)
         {
             base.OnMouseMove(e);
+            if (_resizingColumn >= 0)
+            {
+                int width = Math.Max(60, _resizeStartWidth + e.X - _resizeStartX);
+                SetColumnWidth(_resizingColumn, width);
+                return;
+            }
+            int hoverColumn = e.Y < HeaderHeight ? HeaderColumnFromPoint(e.X) : -1;
+            if (hoverColumn != _hoverColumn)
+            {
+                _hoverColumn = hoverColumn;
+                Invalidate(false);
+            }
+            if (e.Y < HeaderHeight && HeaderResizeColumn(e.X) >= 0)
+                Cursor = Cursors.VSplit;
+            else if (Cursor == Cursors.VSplit)
+                Cursor = Cursors.Default;
             int idx = IndexFromPoint(e.Location);
             if (idx != _hoverIndex)
             {
@@ -1036,6 +1516,7 @@ namespace QuillsModManagerV2.Util.Controls
                 if (Math.Abs(e.Y - _dragStartY) > 6)
                 {
                     _isDragging = true;
+                    _separatorEditCandidate = -1;
                     _dragTarget = _dragIndex;
                     Capture = true;
                     _rowOffsets.Clear();
@@ -1092,7 +1573,7 @@ namespace QuillsModManagerV2.Util.Controls
             if (idx >= 0 && _items != null)
             {
                 int visibleStart = _vScroll.Value;
-                int y = (idx - visibleStart) * _rowHeight;
+                int y = HeaderHeight + (idx - visibleStart) * _rowHeight;
                 Rectangle iconRect = new Rectangle(8, y + 6, 28, 28);
                 int dotsX = Width - _vScroll.Width - 28;
                 Rectangle dotsRect = new Rectangle(dotsX, y + (_rowHeight - 18) / 2, 18, 18);
@@ -1103,8 +1584,8 @@ namespace QuillsModManagerV2.Util.Controls
                     18
                 );
                 if (
-                    _items[idx].HasConflict
-                    && _items[idx].Enabled
+                    ((_items[idx].HasConflict && _items[idx].Enabled)
+                        || _items[idx].MissingDataFolder)
                     && warningRect.Contains(e.Location)
                 )
                 {
@@ -1114,7 +1595,7 @@ namespace QuillsModManagerV2.Util.Controls
                     {
                         _tooltipShownIndex = idx;
                         _tooltip.Show(
-                            _items[idx].ConflictModNames,
+                            GetWarningTooltip(_items[idx]),
                             this,
                             e.Location.X + 12,
                             e.Location.Y + 12,
@@ -1133,12 +1614,23 @@ namespace QuillsModManagerV2.Util.Controls
         protected override void OnMouseDown(MouseEventArgs e)
         {
             base.OnMouseDown(e);
+            int headerColumn = HeaderResizeColumn(e.X);
+            if (e.Y < HeaderHeight && headerColumn >= 0)
+            {
+                _resizingColumn = headerColumn;
+                _resizeStartX = e.X;
+                _resizeStartWidth = headerColumn == 0
+                    ? _titleColumnWidth
+                    : headerColumn == 1 ? _authorColumnWidth : _versionColumnWidth;
+                Capture = true;
+                return;
+            }
             int idx = IndexFromPoint(e.Location);
             if (idx >= 0)
             {
                 Focus();
                 int visibleStart = _vScroll.Value;
-                int y = (idx - visibleStart) * _rowHeight;
+                int y = HeaderHeight + (idx - visibleStart) * _rowHeight;
                 Rectangle iconRect = new Rectangle(8, y + 6, 28, 28);
                 int toggleX = iconRect.Right + 8;
                 Rectangle toggleRect = new Rectangle(toggleX, y + 8, 34, 22);
@@ -1150,6 +1642,15 @@ namespace QuillsModManagerV2.Util.Controls
                     18,
                     18
                 );
+                if (_items[idx].MissingDataFolder && warningRect.Contains(e.Location))
+                {
+                    WarningClicked?.Invoke(idx);
+                    return;
+                }
+                _separatorEditCandidate =
+                    _items[idx].IsSeparator && SeparatorTextRectangle(idx).Contains(e.Location)
+                        ? idx
+                        : -1;
                 bool ctrl = (ModifierKeys & Keys.Control) == Keys.Control;
                 bool shift = (ModifierKeys & Keys.Shift) == Keys.Shift;
                 if (shift && _lastSelectedIndex >= 0)
@@ -1256,12 +1757,27 @@ namespace QuillsModManagerV2.Util.Controls
         protected override void OnMouseUp(MouseEventArgs e)
         {
             base.OnMouseUp(e);
+            if (_resizingColumn >= 0)
+            {
+                _resizingColumn = -1;
+                Capture = false;
+                Cursor = Cursors.Default;
+                return;
+            }
             if (!_isDragging && _dragIndex >= 0)
             {
                 int idx = IndexFromPoint(e.Location);
                 if (idx == _dragIndex)
                 {
                     _selectedIndex = _dragIndex;
+                    if (_separatorEditCandidate == _dragIndex && e.Button == MouseButtons.Left)
+                    {
+                        _separatorEditCandidate = -1;
+                        BeginSeparatorEdit(_dragIndex);
+                        _dragIndex = -1;
+                        Invalidate(false);
+                        return;
+                    }
                     if (e.Button == MouseButtons.Right)
                         ItemRightClicked?.Invoke(_selectedIndex);
                     else if (e.Clicks == 2 && !_isDragging)
@@ -1348,6 +1864,7 @@ namespace QuillsModManagerV2.Util.Controls
             _isDragging = false;
             _dragIndex = -1;
             _dragTarget = -1;
+            _separatorEditCandidate = -1;
             _hoverIndex = -1;
             _autoScrollDir = 0;
             _autoScrollTimer.Stop();
@@ -1444,7 +1961,9 @@ namespace QuillsModManagerV2.Util.Controls
             if (p.X > Width - _vScroll.Width)
                 return -1;
 
-            int row = p.Y / _rowHeight;
+            if (p.Y < HeaderHeight)
+                return -1;
+            int row = (p.Y - HeaderHeight) / _rowHeight;
 
             int idx = row + _vScroll.Value;
 
@@ -1536,6 +2055,8 @@ namespace QuillsModManagerV2.Util.Controls
         {
             if (disposing)
             {
+                EndSeparatorEdit(false);
+                SaveColumnSettings();
                 _cachedBrush?.Dispose();
                 _cachedTogglePath?.Dispose();
                 _animation?.Dispose();

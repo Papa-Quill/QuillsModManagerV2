@@ -36,6 +36,7 @@
             this.QMMEProperties = new Guna.UI2.WinForms.Guna2BorderlessForm(this.components);
             this.BtnMaximize = new Guna.UI2.WinForms.Guna2ControlBox();
             this.PanelSideBar = new Guna.UI2.WinForms.Guna2Panel();
+            this.BtnOpenTutorial = new Guna.UI2.WinForms.Guna2Button();
             this.PanelProfileInfo = new Guna.UI2.WinForms.Guna2Panel();
             this.LabelCurrentProfile = new System.Windows.Forms.Label();
             this.LabelModBrowser = new System.Windows.Forms.Label();
@@ -194,9 +195,44 @@
             this.PanelSideBar.MaximumSize = new System.Drawing.Size(34, 9999);
             this.PanelSideBar.MinimumSize = new System.Drawing.Size(34, 34);
             this.PanelSideBar.Name = "PanelSideBar";
-            this.PanelSideBar.Padding = new System.Windows.Forms.Padding(1);
             this.PanelSideBar.Size = new System.Drawing.Size(34, 242);
             this.PanelSideBar.TabIndex = 0;
+            // 
+            // BtnOpenTutorial
+            // 
+            this.BtnOpenTutorial.AccessibleDescription = "Open tutorial video on YouTube.";
+            this.BtnOpenTutorial.AccessibleName = "BtnOpenTutorial";
+            this.BtnOpenTutorial.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnOpenTutorial.Animated = true;
+            this.BtnOpenTutorial.BackColor = System.Drawing.Color.Transparent;
+            this.BtnOpenTutorial.BorderColor = global::QuillsModManagerV2.Properties.Settings.Default.DetailColor;
+            this.BtnOpenTutorial.BorderRadius = global::QuillsModManagerV2.Properties.Settings.Default.BorderRadius;
+            this.BtnOpenTutorial.BorderThickness = 1;
+            this.BtnOpenTutorial.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnOpenTutorial.CustomizableEdges.TopLeft = false;
+            this.BtnOpenTutorial.CustomizableEdges.TopRight = false;
+            this.BtnOpenTutorial.DataBindings.Add(new System.Windows.Forms.Binding("BorderColor", global::QuillsModManagerV2.Properties.Settings.Default, "DetailColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnOpenTutorial.DataBindings.Add(new System.Windows.Forms.Binding("FillColor", global::QuillsModManagerV2.Properties.Settings.Default, "ButtonColor", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnOpenTutorial.DataBindings.Add(new System.Windows.Forms.Binding("PressedColor", global::QuillsModManagerV2.Properties.Settings.Default, "BGTertiary", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnOpenTutorial.DataBindings.Add(new System.Windows.Forms.Binding("BorderRadius", global::QuillsModManagerV2.Properties.Settings.Default, "BorderRadius", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
+            this.BtnOpenTutorial.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.BtnOpenTutorial.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.BtnOpenTutorial.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.BtnOpenTutorial.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.BtnOpenTutorial.FillColor = global::QuillsModManagerV2.Properties.Settings.Default.ButtonColor;
+            this.BtnOpenTutorial.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.BtnOpenTutorial.ForeColor = System.Drawing.Color.White;
+            this.BtnOpenTutorial.Image = ((System.Drawing.Image)(resources.GetObject("BtnOpenTutorial.Image")));
+            this.BtnOpenTutorial.ImageSize = new System.Drawing.Size(24, 24);
+            this.BtnOpenTutorial.Location = new System.Drawing.Point(10, 262);
+            this.BtnOpenTutorial.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnOpenTutorial.Name = "BtnOpenTutorial";
+            this.BtnOpenTutorial.PressedColor = global::QuillsModManagerV2.Properties.Settings.Default.BGTertiary;
+            this.BtnOpenTutorial.Size = new System.Drawing.Size(34, 34);
+            this.BtnOpenTutorial.TabIndex = 0;
+            this.BtnOpenTutorial.UseTransparentBackground = true;
+            this.BtnOpenTutorial.Click += new System.EventHandler(this.BtnOpenTutorial_Click);
+            this.BtnOpenTutorial.MouseEnter += new System.EventHandler(this.BtnToolTip_MouseEnter);
             // 
             // PanelProfileInfo
             // 
@@ -621,6 +657,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = global::QuillsModManagerV2.Properties.Settings.Default.BGPrimary;
             this.ClientSize = new System.Drawing.Size(667, 322);
+            this.Controls.Add(this.BtnOpenTutorial);
             this.Controls.Add(this.BtnProfile);
             this.Controls.Add(this.BtnSettings);
             this.Controls.Add(this.BtnStartGame);
@@ -683,6 +720,7 @@
         private Guna.UI2.WinForms.Guna2Button BtnStartGame;
         private Guna.UI2.WinForms.Guna2Button BtnSettings;
         private Guna.UI2.WinForms.Guna2Button BtnProfile;
+        private Guna.UI2.WinForms.Guna2Button BtnOpenTutorial;
     }
 }
 

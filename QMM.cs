@@ -1782,5 +1782,15 @@ namespace QuillsModManagerV2
                 }
             );
         }
+
+        private void BtnOpenTutorial_Click(object sender, EventArgs e)
+        {
+            Process.Start(
+                new ProcessStartInfo("https://www.youtube.com/watch?v=kntkFIjH3CA")
+                {
+                    UseShellExecute = true
+                }
+            );
+        }
     }
 }

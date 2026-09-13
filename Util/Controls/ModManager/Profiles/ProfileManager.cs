@@ -51,7 +51,7 @@ namespace QuillsModManagerV2.Util.Controls
                 if (!Directory.Exists(profileDir))
                     Directory.CreateDirectory(profileDir);
 
-                var data = mods.Where(m => m.Enabled)
+                var data = mods.Where(m => !m.IsSeparator && m.Enabled)
                     .Select(m => Path.GetFileName(m.Path))
                     .ToList();
                 string path = Path.Combine(profileDir, "profile.json");
@@ -89,10 +89,25 @@ namespace QuillsModManagerV2.Util.Controls
                 if (data == null)
                     return;
 
+                if (mods.Any(m => m.IsSeparator))
+                {
+                    var enabledSetWithSeparators = new HashSet<string>(
+                        data,
+                        StringComparer.OrdinalIgnoreCase
+                    );
+                    foreach (var mod in mods.Where(m => !m.IsSeparator))
+                    {
+                        mod.Enabled = enabledSetWithSeparators.Contains(Path.GetFileName(mod.Path));
+                    }
+                    return;
+                }
+
                 var ordered = new List<ModEntry>();
                 foreach (var folder in data)
                 {
                     var found = mods.FirstOrDefault(x =>
+                        !x.IsSeparator
+                        &&
                         string.Equals(
                             Path.GetFileName(x.Path),
                             folder,
@@ -114,9 +129,9 @@ namespace QuillsModManagerV2.Util.Controls
                 mods.ResetBindings();
 
                 var enabledSet = new HashSet<string>(data, StringComparer.OrdinalIgnoreCase);
-                foreach (var m in mods)
+                foreach (var m in mods.Where(x => !x.IsSeparator))
                     m.Enabled = false;
-                foreach (var m in mods)
+                foreach (var m in mods.Where(x => !x.IsSeparator))
                 {
                     var folder = Path.GetFileName(m.Path);
                     if (enabledSet.Contains(folder))
