@@ -116,11 +116,11 @@
     <Compile Include="Util\Controls\CustomScrollBar.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Util\Controls\Debug\DebugUtil.cs" />
-    <Compile Include="Util\Controls\Debug\FormDebugConsole.cs">
+    <Compile Include="Util\Controls\DebugUtil\DebugUtil.cs" />
+    <Compile Include="Util\Controls\DebugUtil\FormDebugConsole.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Util\Controls\Debug\FormDebugConsole.Designer.cs">
+    <Compile Include="Util\Controls\DebugUtil\FormDebugConsole.Designer.cs">
       <DependentUpon>FormDebugConsole.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\Controls\ModManager\DeploymentManager.cs" />
@@ -186,7 +186,7 @@
     <EmbeddedResource Include="UserControls\FormThemer.resx">
       <DependentUpon>FormThemer.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Util\Controls\Debug\FormDebugConsole.resx">
+    <EmbeddedResource Include="Util\Controls\DebugUtil\FormDebugConsole.resx">
       <DependentUpon>FormDebugConsole.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Util\Controls\ModManager\Profiles\FormProfileManager.resx">
